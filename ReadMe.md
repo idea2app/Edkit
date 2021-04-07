@@ -1,49 +1,52 @@
 # React Bootstrap editor
 
-**Rich Text Editor** based on [React][1] & [Bootstrap][2]
+**Rich Text Editor** based on [TypeScript][1], [React][2] & [Bootstrap][3]
 
-[![NPM Dependency](https://david-dm.org/idea2app/React-Bootstrap-editor.svg)][3]
-[![CI & CD](https://github.com/idea2app/React-Bootstrap-editor/workflows/CI%20&%20CD/badge.svg)][4]
+[![NPM Dependency](https://david-dm.org/idea2app/React-Bootstrap-editor.svg)][4]
+[![CI & CD](https://github.com/idea2app/React-Bootstrap-editor/workflows/CI%20&%20CD/badge.svg)][5]
 
-[![NPM](https://nodei.co/npm/react-bootstrap-editor.png?downloads=true&downloadRank=true&stars=true)][5]
+[![NPM](https://nodei.co/npm/react-bootstrap-editor.png?downloads=true&downloadRank=true&stars=true)][6]
+
+## Demo
+
+https://ideapp.dev/React-MobX-Bootstrap-ts/#/component
 
 ## Usage
 
+### Installation
+
+#### Shell command
+
 ```shell
-npm install react-bootstrap-editor \
-    react react-bootstrap
+npm install react react-bootstrap-editor
 ```
 
-```jsx
+#### HTML entry
+
+```html
+<head>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
+    />
+</head>
+```
+
+### Initialization
+
+```javascript
 import React, { PureComponent } from 'react';
-import {
-    Editor,
-    BoldTool,
-    ItalicTool,
-    UnderlineTool,
-    StrikeThroughTool,
-    ImageTool,
-    LinkTool,
-    AudioTool,
-    VideoTool,
-    IFrameTool
-} from 'react-bootstrap-editor';
+import { Editor, OriginalTools } from 'react-bootstrap-editor';
 
 export class PostEdit extends PureComponent {
     render() {
         return (
             <Editor
-                tools={[
-                    BoldTool,
-                    ItalicTool,
-                    UnderlineTool,
-                    StrikeThroughTool,
-                    LinkTool,
-                    IFrameTool,
-                    ImageTool,
-                    AudioTool,
-                    VideoTool
-                ]}
+                tools={OriginalTools}
                 value="<p>test</p>"
                 onChange={console.log}
             />
@@ -52,8 +55,9 @@ export class PostEdit extends PureComponent {
 }
 ```
 
-[1]: https://reactjs.org/
-[2]: https://getbootstrap.com/
-[3]: https://david-dm.org/idea2app/React-Bootstrap-editor
-[4]: https://github.com/idea2app/React-Bootstrap-editor/actions
-[5]: https://nodei.co/npm/react-bootstrap-editor/
+[1]: https://www.typescriptlang.org/
+[2]: https://reactjs.org/
+[3]: https://getbootstrap.com/
+[4]: https://david-dm.org/idea2app/React-Bootstrap-editor
+[5]: https://github.com/idea2app/React-Bootstrap-editor/actions
+[6]: https://nodei.co/npm/react-bootstrap-editor/

@@ -1,25 +1,20 @@
 import React, { PropsWithoutRef, PureComponent } from 'react';
-import Button from 'react-bootstrap/Button';
 
-import { Tool } from './tools';
+import { Tool } from './Tool';
 
 export type EditorProps = PropsWithoutRef<{
-    tools: Tool[];
+    tools: { new (...args: any[]): Tool }[];
     value?: string;
     onChange?(value: string): any;
 }>;
 
-interface ToolButton extends Omit<Tool, 'stateQuery'> {
-    active: boolean;
-}
-
 interface EditorState {
-    toolList: ToolButton[];
+    toolList: Tool[];
 }
 
 export class Editor extends PureComponent<EditorProps, EditorState> {
     state = {
-        toolList: [] as ToolButton[]
+        toolList: [] as Tool[]
     };
 
     static getDerivedStateFromProps(
@@ -29,57 +24,45 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
         return {
             toolList: toolList[0]
                 ? toolList
-                : tools.map(({ stateQuery, ...tool }) => ({
-                      ...tool,
-                      active: false
-                  }))
+                : tools.map(ToolButton => new ToolButton())
         };
     }
 
     componentDidMount() {
-        document.addEventListener('selectionchange', this.queryToolState);
+        document.addEventListener('selectionchange', this.updateTools);
     }
 
     componentWillUnmount() {
-        document.removeEventListener('selectionchange', this.queryToolState);
+        document.removeEventListener('selectionchange', this.updateTools);
     }
 
-    static matchFormat(element: HTMLElement, tags: string[]) {
-        return element.matches(tags.map(tag => `${tag}, ${tag} *`).join(', '));
-    }
+    updateTools = () => this.setState({ toolList: [...this.state.toolList] });
 
-    queryToolState = () => {
-        const { tools } = this.props,
-            { parentElement } = getSelection().anchorNode;
+    renderTool = (tool: Tool) => {
+        const { name, keys, active, icon, usable } = tool;
 
-        const toolList = tools.map(({ tags, stateQuery, ...tool }) => ({
-            ...tool,
-            active: tags
-                ? Editor.matchFormat(parentElement, tags)
-                : stateQuery(parentElement)
-        }));
+        const title = `${name}${
+                usable
+                    ? keys
+                        ? `\n(${keys.join(' + ')})`
+                        : ''
+                    : '\n(not supported)'
+            }`,
+            Class = `btn btn-${(active ? '' : 'outline-') + 'secondary'} mr-2`;
 
-        this.setState({ toolList });
+        return (
+            <button
+                key={icon}
+                title={title}
+                className={Class}
+                style={{ cursor: usable ? 'pointer' : 'not-allowed' }}
+                disabled={!usable}
+                onClick={() => tool.execute()}
+            >
+                <i className={`bi-${icon}`} />
+            </button>
+        );
     };
-
-    renderTool = ({
-        name,
-        icon,
-        keys,
-        active,
-        inputs,
-        command
-    }: ToolButton) => (
-        <Button
-            key={icon}
-            variant={(active ? '' : 'outline-') + 'secondary'}
-            className="mr-2"
-            title={`${name}${keys ? `\n${keys.join(' + ')}` : ''}`}
-            onClick={() => command(...inputs.map(input => self.prompt(input)))}
-        >
-            <i className={`bi-${icon}`} />
-        </Button>
-    );
 
     render() {
         const { toolList } = this.state,
@@ -89,7 +72,7 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
             <>
                 <header>{toolList.map(this.renderTool)}</header>
                 <div
-                    className="form-control h-auto mt-3"
+                    className="form-control h-auto mt-2"
                     contentEditable
                     dangerouslySetInnerHTML={{ __html: value }}
                     onInput={({ target }) =>
