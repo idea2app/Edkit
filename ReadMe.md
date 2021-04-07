@@ -18,7 +18,8 @@ https://ideapp.dev/React-MobX-Bootstrap-ts/#/component
 #### Shell command
 
 ```shell
-npm install react react-bootstrap-editor
+npm install react-bootstrap-editor \
+    react browser-fs-access
 ```
 
 #### HTML entry

@@ -10,21 +10,24 @@ export type EditorProps = PropsWithoutRef<{
 
 interface EditorState {
     toolList: Tool[];
+    data: string;
 }
 
 export class Editor extends PureComponent<EditorProps, EditorState> {
     state = {
-        toolList: [] as Tool[]
+        toolList: [] as Tool[],
+        data: ''
     };
 
     static getDerivedStateFromProps(
-        { tools }: EditorProps,
-        { toolList }: EditorState
+        { tools, value }: EditorProps,
+        { toolList, data }: EditorState
     ): EditorState {
         return {
             toolList: toolList[0]
                 ? toolList
-                : tools.map(ToolButton => new ToolButton())
+                : tools.map(ToolButton => new ToolButton()),
+            data: data || value
         };
     }
 
@@ -48,11 +51,14 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
                         : ''
                     : '\n(not supported)'
             }`,
-            Class = `btn btn-${(active ? '' : 'outline-') + 'secondary'} mr-2`;
+            Class = `btn btn-${
+                (active ? '' : 'outline-') + 'secondary'
+            } mr-2 mb-2`;
 
         return (
             <button
                 key={icon}
+                type="button"
                 title={title}
                 className={Class}
                 style={{ cursor: usable ? 'pointer' : 'not-allowed' }}
@@ -65,16 +71,16 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
     };
 
     render() {
-        const { toolList } = this.state,
-            { value, onChange } = this.props;
+        const { toolList, data } = this.state,
+            { onChange } = this.props;
 
         return (
             <>
                 <header>{toolList.map(this.renderTool)}</header>
                 <div
-                    className="form-control h-auto mt-2"
+                    className="form-control h-auto"
                     contentEditable
-                    dangerouslySetInnerHTML={{ __html: value }}
+                    dangerouslySetInnerHTML={{ __html: data }}
                     onInput={({ target }) =>
                         onChange?.((target as HTMLElement).innerHTML)
                     }

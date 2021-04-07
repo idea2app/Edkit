@@ -1,4 +1,4 @@
-import { Tool } from './Tool';
+import { Tool, FileTool } from './Tool';
 
 export class BoldTool extends Tool {
     name = 'Bold';
@@ -25,20 +25,24 @@ export class UnderlineTool extends Tool {
 }
 
 export class StrikeThroughTool extends Tool {
-    name = 'Strike Through';
+    name = 'Strike through';
     icon = 'type-strikethrough';
     tags = ['s', 'del', 'strike'];
     command = 'strikeThrough';
 }
 
+const HeadingCommand = document.queryCommandSupported('heading')
+    ? 'heading'
+    : 'formatBlock';
+
 export class H1Tool extends Tool {
     name = 'H1';
     icon = 'type-h1';
     tags = ['h1'];
-    command = 'heading';
+    command = HeadingCommand;
 
     execute() {
-        return document.execCommand('heading', null, 'H1');
+        return document.execCommand(this.command, null, 'H1');
     }
 }
 
@@ -46,10 +50,10 @@ export class H2Tool extends Tool {
     name = 'H2';
     icon = 'type-h2';
     tags = ['h2'];
-    command = 'heading';
+    command = HeadingCommand;
 
     execute() {
-        return document.execCommand('heading', null, 'H2');
+        return document.execCommand(this.command, null, 'H2');
     }
 }
 
@@ -57,11 +61,39 @@ export class H3Tool extends Tool {
     name = 'H3';
     icon = 'type-h3';
     tags = ['h3'];
-    command = 'heading';
+    command = HeadingCommand;
 
     execute() {
-        return document.execCommand('heading', null, 'H3');
+        return document.execCommand(this.command, null, 'H3');
     }
+}
+
+export class FontSizeDownTool extends Tool {
+    name = 'Font Size down';
+    icon = 'sort-alpha-down';
+    tags = ['small'];
+    command = 'decreaseFontSize';
+}
+
+export class FontSizeUpTool extends Tool {
+    name = 'Font Size down';
+    icon = 'sort-alpha-down';
+    tags = ['big'];
+    command = 'increaseFontSize';
+}
+
+export class SubScript extends Tool {
+    name = 'Subscript';
+    icon = 'box-arrow-down-right';
+    tags = ['sub'];
+    command = 'subscript';
+}
+
+export class SuperScript extends Tool {
+    name = 'Superscript';
+    icon = 'box-arrow-up-right';
+    tags = ['sup'];
+    command = 'superscript';
 }
 
 export class LinkTool extends Tool {
@@ -72,8 +104,22 @@ export class LinkTool extends Tool {
     command = 'createLink';
 }
 
+export class OrderedListTool extends Tool {
+    name = 'Ordered list';
+    icon = 'list-ol';
+    tags = ['ol'];
+    command = 'insertOrderedList';
+}
+
+export class UnorderedListTool extends Tool {
+    name = 'Unordered list';
+    icon = 'list-ul';
+    tags = ['ul'];
+    command = 'insertUnorderedList';
+}
+
 export class IFrameTool extends Tool {
-    name = 'iFrame';
+    name = 'Embed Web page';
     icon = 'window';
     tags = ['iframe'];
 
@@ -88,42 +134,31 @@ export class IFrameTool extends Tool {
     }
 }
 
-export class ImageTool extends Tool {
+export class ImageTool extends FileTool {
     name = 'Image';
     icon = 'image';
     tags = ['img'];
-    inputs = ['Path'];
     command = 'insertImage';
 }
 
-export class AudioTool extends Tool {
+export class AudioTool extends FileTool {
     name = 'Audio';
     icon = 'voicemail';
     tags = ['audio'];
+    command = 'insertHTML';
 
-    execute() {
-        const path = self.prompt('Path');
-
-        return document.execCommand(
-            'insertHTML',
-            true,
-            `<audio controls src="${path}"></audio>`
-        );
+    codeOf(path: string) {
+        return `<audio controls src="${path}"></audio>`;
     }
 }
 
-export class VideoTool extends Tool {
+export class VideoTool extends FileTool {
     name = 'Video';
     icon = 'camera-video';
     tags = ['video'];
+    command = 'insertHTML';
 
-    execute() {
-        const path = self.prompt('Path');
-
-        return document.execCommand(
-            'insertHTML',
-            true,
-            `<video controls src="${path}"></video>`
-        );
+    codeOf(path: string) {
+        return `<video controls src="${path}"></video>`;
     }
 }
