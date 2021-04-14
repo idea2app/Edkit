@@ -1,4 +1,4 @@
-import { Tool, FileTool } from './Tool';
+import { Tool, AlignTool, AlignMode } from '../Tool';
 
 export class BoldTool extends Tool {
     name = 'Bold';
@@ -76,24 +76,52 @@ export class FontSizeDownTool extends Tool {
 }
 
 export class FontSizeUpTool extends Tool {
-    name = 'Font Size down';
-    icon = 'sort-alpha-down';
+    name = 'Font Size up';
+    icon = 'sort-alpha-up';
     tags = ['big'];
     command = 'increaseFontSize';
 }
 
-export class SubScript extends Tool {
+export class SubscriptTool extends Tool {
     name = 'Subscript';
     icon = 'box-arrow-down-right';
     tags = ['sub'];
     command = 'subscript';
 }
 
-export class SuperScript extends Tool {
+export class SuperscriptTool extends Tool {
     name = 'Superscript';
     icon = 'box-arrow-up-right';
     tags = ['sup'];
     command = 'superscript';
+}
+
+export class AlignLeftTool extends AlignTool {
+    name = 'Align Left';
+    icon = 'text-left';
+    command = 'justifyLeft';
+    align = 'left' as AlignMode;
+}
+
+export class AlignCenterTool extends AlignTool {
+    name = 'Align Center';
+    icon = 'text-center';
+    command = 'justifyCenter';
+    align = 'center' as AlignMode;
+}
+
+export class AlignRightTool extends AlignTool {
+    name = 'Align Right';
+    icon = 'text-right';
+    command = 'justifyRight';
+    align = 'right' as AlignMode;
+}
+
+export class AlignFullTool extends AlignTool {
+    name = 'Align Full';
+    icon = 'justify';
+    command = 'justifyFull';
+    align = 'justify' as AlignMode;
 }
 
 export class LinkTool extends Tool {
@@ -118,47 +146,9 @@ export class UnorderedListTool extends Tool {
     command = 'insertUnorderedList';
 }
 
-export class IFrameTool extends Tool {
-    name = 'Embed Web page';
-    icon = 'window';
-    tags = ['iframe'];
-
-    execute() {
-        const path = self.prompt('Path');
-
-        return document.execCommand(
-            'insertHTML',
-            true,
-            `<iframe style="width: 100%; height: 50vh; border: none" src="${path}"></iframe>`
-        );
-    }
-}
-
-export class ImageTool extends FileTool {
-    name = 'Image';
-    icon = 'image';
-    tags = ['img'];
-    command = 'insertImage';
-}
-
-export class AudioTool extends FileTool {
-    name = 'Audio';
-    icon = 'voicemail';
-    tags = ['audio'];
-    command = 'insertHTML';
-
-    codeOf(path: string) {
-        return `<audio controls src="${path}"></audio>`;
-    }
-}
-
-export class VideoTool extends FileTool {
-    name = 'Video';
-    icon = 'camera-video';
-    tags = ['video'];
-    command = 'insertHTML';
-
-    codeOf(path: string) {
-        return `<video controls src="${path}"></video>`;
-    }
+export class HorizontalRuleTool extends Tool {
+    name = 'Horizontal rule';
+    icon = 'reception-0';
+    tags = ['hr'];
+    command = 'insertHorizontalRule';
 }

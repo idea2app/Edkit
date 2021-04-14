@@ -9,7 +9,7 @@
         "declaration": true,
         "outDir": "dist/"
     },
-    "include": ["source/*"],
+    "include": ["source/**/*"],
     "typedocOptions": {
         "name": "React Bootstrap editor",
         "excludeExternals": true,

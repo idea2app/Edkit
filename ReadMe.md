@@ -1,6 +1,6 @@
 # React Bootstrap editor
 
-**Rich Text Editor** based on [TypeScript][1], [React][2] & [Bootstrap][3]
+Lightweight **Rich Text Editor** based on [TypeScript][1], [React][2] & [Bootstrap][3]
 
 [![NPM Dependency](https://david-dm.org/idea2app/React-Bootstrap-editor.svg)][4]
 [![CI & CD](https://github.com/idea2app/React-Bootstrap-editor/workflows/CI%20&%20CD/badge.svg)][5]

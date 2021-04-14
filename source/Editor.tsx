@@ -1,4 +1,4 @@
-import React, { PropsWithoutRef, PureComponent } from 'react';
+import React, { createRef, PropsWithoutRef, PureComponent } from 'react';
 
 import { Tool } from './Tool';
 
@@ -14,6 +14,8 @@ interface EditorState {
 }
 
 export class Editor extends PureComponent<EditorProps, EditorState> {
+    box = createRef<HTMLDivElement>();
+
     state = {
         toolList: [] as Tool[],
         data: ''
@@ -39,7 +41,10 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
         document.removeEventListener('selectionchange', this.updateTools);
     }
 
-    updateTools = () => this.setState({ toolList: [...this.state.toolList] });
+    updateTools = () => {
+        if (this.box.current === document.activeElement)
+            this.setState({ toolList: [...this.state.toolList] });
+    };
 
     renderTool = (tool: Tool) => {
         const { name, keys, active, icon, usable } = tool;
@@ -78,6 +83,7 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
             <>
                 <header>{toolList.map(this.renderTool)}</header>
                 <div
+                    ref={this.box}
                     className="form-control h-auto"
                     contentEditable
                     dangerouslySetInnerHTML={{ __html: data }}

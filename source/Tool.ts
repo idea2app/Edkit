@@ -9,6 +9,10 @@ export abstract class Tool {
     command?: string;
     inputs?: string[];
 
+    static get anchorElement() {
+        return self.getSelection()?.anchorNode?.parentElement;
+    }
+
     get usable() {
         const { command } = this;
 
@@ -19,17 +23,20 @@ export abstract class Tool {
         );
     }
 
-    get active() {
+    protected getActive() {
         const { command, tags } = this;
 
-        if (tags) {
-            const element = self.getSelection()?.anchorNode?.parentElement;
-
-            return element?.matches(
+        if (tags)
+            return Tool.anchorElement?.matches(
                 tags.map(tag => `${tag}, ${tag} *`).join(', ')
             );
-        } else if (command) return document.queryCommandState(command);
-        else return false;
+        if (command) return document.queryCommandState(command);
+
+        return false;
+    }
+
+    get active() {
+        return this.getActive();
     }
 
     execute() {
@@ -44,6 +51,20 @@ export abstract class Tool {
             values = data;
         }
         document.execCommand(this.command, null, ...values);
+    }
+}
+
+export type AlignMode = 'left' | 'center' | 'right' | 'justify';
+
+export abstract class AlignTool extends Tool {
+    abstract align: AlignMode;
+
+    get active() {
+        if (super.getActive()) return true;
+
+        const { anchorElement: box } = Tool;
+
+        return !!box && getComputedStyle(box).textAlign === this.align;
     }
 }
 
