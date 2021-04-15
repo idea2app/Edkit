@@ -46,49 +46,20 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
             this.setState({ toolList: [...this.state.toolList] });
     };
 
-    renderTool = (tool: Tool) => {
-        const { name, keys, active, icon, usable } = tool;
-
-        const title = `${name}${
-                usable
-                    ? keys
-                        ? `\n(${keys.join(' + ')})`
-                        : ''
-                    : '\n(not supported)'
-            }`,
-            Class = `btn btn-${
-                (active ? '' : 'outline-') + 'secondary'
-            } mr-2 mb-2`;
-
-        return (
-            <button
-                key={icon}
-                type="button"
-                title={title}
-                className={Class}
-                style={{ cursor: usable ? 'pointer' : 'not-allowed' }}
-                disabled={!usable}
-                onClick={() => tool.execute()}
-            >
-                <i className={`bi-${icon}`} />
-            </button>
-        );
-    };
-
     render() {
         const { toolList, data } = this.state,
             { onChange } = this.props;
 
         return (
             <>
-                <header>{toolList.map(this.renderTool)}</header>
+                <header>{toolList.map(tool => tool.render())}</header>
                 <div
                     ref={this.box}
                     className="form-control h-auto"
                     contentEditable
                     dangerouslySetInnerHTML={{ __html: data }}
                     onInput={({ target }) =>
-                        onChange?.((target as HTMLElement).innerHTML)
+                        onChange && onChange((target as HTMLElement).innerHTML)
                     }
                 />
             </>

@@ -1,4 +1,11 @@
+import React from 'react';
 import { fileOpen } from 'browser-fs-access';
+
+export function getAnchorElement() {
+    const { anchorNode } = self.getSelection() || {};
+
+    if (anchorNode) return anchorNode.parentElement;
+}
 
 export abstract class Tool {
     abstract name: string;
@@ -8,10 +15,6 @@ export abstract class Tool {
     keys?: string[];
     command?: string;
     inputs?: string[];
-
-    static get anchorElement() {
-        return self.getSelection()?.anchorNode?.parentElement;
-    }
 
     get usable() {
         const { command } = this;
@@ -26,10 +29,14 @@ export abstract class Tool {
     protected getActive() {
         const { command, tags } = this;
 
-        if (tags)
-            return Tool.anchorElement?.matches(
-                tags.map(tag => `${tag}, ${tag} *`).join(', ')
+        if (tags) {
+            const box = getAnchorElement();
+
+            return (
+                !!box &&
+                box.matches(tags.map(tag => `${tag}, ${tag} *`).join(', '))
             );
+        }
         if (command) return document.queryCommandState(command);
 
         return false;
@@ -39,7 +46,7 @@ export abstract class Tool {
         return this.getActive();
     }
 
-    execute() {
+    execute(...data: any[]) {
         var { inputs } = this,
             values = [];
 
@@ -52,19 +59,34 @@ export abstract class Tool {
         }
         document.execCommand(this.command, null, ...values);
     }
-}
 
-export type AlignMode = 'left' | 'center' | 'right' | 'justify';
+    render() {
+        const { name, keys, active, icon, usable } = this;
 
-export abstract class AlignTool extends Tool {
-    abstract align: AlignMode;
+        const title = `${name}${
+                usable
+                    ? keys
+                        ? `\n(${keys.join(' + ')})`
+                        : ''
+                    : '\n(not supported)'
+            }`,
+            Class = `btn btn-${
+                (active ? '' : 'outline-') + 'secondary'
+            } mr-2 mb-2`;
 
-    get active() {
-        if (super.getActive()) return true;
-
-        const { anchorElement: box } = Tool;
-
-        return !!box && getComputedStyle(box).textAlign === this.align;
+        return (
+            <button
+                key={icon}
+                type="button"
+                title={title}
+                className={Class}
+                style={{ cursor: usable ? 'pointer' : 'not-allowed' }}
+                disabled={!usable}
+                onClick={() => this.execute()}
+            >
+                <i className={`bi-${icon}`} />
+            </button>
+        );
     }
 }
 

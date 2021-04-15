@@ -10,16 +10,24 @@ import {
     FontSizeUpTool,
     SubscriptTool,
     SuperscriptTool,
+    LinkTool
+} from './Text';
+import { ForeColorTool, BackColorTool } from './Color';
+import {
     AlignLeftTool,
     AlignCenterTool,
     AlignRightTool,
     AlignFullTool,
-    LinkTool,
     OrderedListTool,
     UnorderedListTool,
     HorizontalRuleTool
-} from './Text';
+} from './Layout';
 import { IFrameTool, ImageTool, AudioTool, VideoTool } from './Media';
+
+export * from './Text';
+export * from './Color';
+export * from './Layout';
+export * from './Media';
 
 export const TextTools = [
     BoldTool,
@@ -33,15 +41,23 @@ export const TextTools = [
     FontSizeUpTool,
     SubscriptTool,
     SuperscriptTool,
+    LinkTool
+];
+export const ColorTools = [ForeColorTool, BackColorTool];
+export const LayoutTools = [
     AlignLeftTool,
     AlignCenterTool,
     AlignRightTool,
     AlignFullTool,
-    LinkTool,
     OrderedListTool,
     UnorderedListTool,
     HorizontalRuleTool
 ];
 export const MediaTools = [IFrameTool, ImageTool, AudioTool, VideoTool];
 
-export default [...TextTools, ...MediaTools];
+export const OriginalTools = [
+    ...TextTools,
+    ...ColorTools,
+    ...LayoutTools,
+    ...MediaTools
+];

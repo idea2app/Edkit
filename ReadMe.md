@@ -11,6 +11,45 @@ Lightweight **Rich Text Editor** based on [TypeScript][1], [React][2] & [Bootstr
 
 https://ideapp.dev/React-MobX-Bootstrap-ts/#/component
 
+## Tools
+
+### Text
+
+1. Bold
+2. Italic
+3. Underline
+4. Strike through
+5. H1
+6. H2
+7. H3
+8. Font Size down
+9. Font Size up
+10. Subscript
+11. Superscript
+12. Link
+
+### Color
+
+1. Fore Color
+2. Back Color
+
+### Layout
+
+1. Align Left
+2. Align Center
+3. Align Right
+4. Align Full
+5. Ordered list
+6. Unordered list
+7. Horizontal rule
+
+### Media
+
+1. Embed Web page
+2. Image
+3. Audio
+4. Video
+
 ## Usage
 
 ### Installation
