@@ -1,4 +1,4 @@
-import React, { PropsWithoutRef } from 'react';
+import React, { PropsWithoutRef, RefObject } from 'react';
 
 import { getAnchorElement, Tool } from '../Tool';
 
@@ -46,10 +46,9 @@ export function ColorSelector({
                     backgroundColor: type === 'color' ? 'white' : value,
                     borderColor: value
                 }}
-                onClick={({ currentTarget }) =>
-                    ((currentTarget as HTMLButtonElement)
-                        .previousElementSibling as HTMLInputElement).click()
-                }
+                onClick={({
+                    currentTarget: { previousElementSibling: picker }
+                }) => (picker as HTMLInputElement).click()}
             >
                 <i className={`bi-${icon}`} />
             </button>
@@ -82,11 +81,11 @@ export abstract class ColorTool extends Tool {
         return !!this.getColor();
     }
 
-    execute(color: string) {
-        document.execCommand(this.command, null, color);
+    execute(editor: HTMLElement, color: string) {
+        this.edit(editor, color);
     }
 
-    render() {
+    render(editor: RefObject<HTMLElement>) {
         const { icon, name, colorName } = this;
 
         return (
@@ -97,7 +96,9 @@ export abstract class ColorTool extends Tool {
                 icon={icon}
                 type={colorName}
                 value={this.getColor()}
-                onChange={color => this.execute(color)}
+                onChange={color =>
+                    editor.current && this.execute(editor.current, color)
+                }
             />
         );
     }

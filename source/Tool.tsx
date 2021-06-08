@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import { fileOpen } from 'browser-fs-access';
 
 export function getAnchorElement() {
@@ -46,7 +46,12 @@ export abstract class Tool {
         return this.getActive();
     }
 
-    execute(...data: any[]) {
+    protected edit(editor: HTMLElement, ...data: any[]) {
+        editor.focus();
+        document.execCommand(this.command, null, ...data);
+    }
+
+    execute(editor: HTMLElement, ...data: any[]) {
         var { inputs } = this,
             values = [];
 
@@ -57,10 +62,10 @@ export abstract class Tool {
 
             values = data;
         }
-        document.execCommand(this.command, null, ...values);
+        this.edit(editor, ...values);
     }
 
-    render() {
+    render(editor: RefObject<HTMLElement>) {
         const { name, keys, active, icon, usable } = this;
 
         const title = `${name}${
@@ -82,7 +87,7 @@ export abstract class Tool {
                 className={Class}
                 style={{ cursor: usable ? 'pointer' : 'not-allowed' }}
                 disabled={!usable}
-                onClick={() => this.execute()}
+                onClick={() => editor.current && this.execute(editor.current)}
             >
                 <i className={`bi-${icon}`} />
             </button>
@@ -99,13 +104,13 @@ export abstract class FileTool extends Tool {
         return path;
     }
 
-    async execute() {
+    async execute(editor: HTMLElement) {
         const path = self.confirm(
             'Confirm to upload a file, or cancel to input a path.'
         )
             ? await this.save(await fileOpen())
             : self.prompt('Path');
 
-        document.execCommand(this.command, null, this.codeOf(path));
+        if (path) this.edit(editor, this.codeOf(path));
     }
 }

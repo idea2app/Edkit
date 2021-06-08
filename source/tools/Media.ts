@@ -4,15 +4,16 @@ export class IFrameTool extends Tool {
     name = 'Embed Web page';
     icon = 'window';
     tags = ['iframe'];
+    command = 'insertHTML';
 
-    execute() {
+    execute(editor: HTMLElement) {
         const path = self.prompt('Path');
 
-        return document.execCommand(
-            'insertHTML',
-            true,
-            `<iframe style="width: 100%; height: 50vh; border: none" src="${path}"></iframe>`
-        );
+        if (path)
+            this.edit(
+                editor,
+                `<iframe style="width: 100%; height: 50vh; border: none" src="${path}"></iframe>`
+            );
     }
 }
 

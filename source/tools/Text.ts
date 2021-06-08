@@ -41,8 +41,8 @@ export class H1Tool extends Tool {
     tags = ['h1'];
     command = HeadingCommand;
 
-    execute() {
-        return document.execCommand(this.command, null, 'H1');
+    execute(editor: HTMLElement) {
+        this.edit(editor, 'H1');
     }
 }
 
@@ -52,8 +52,8 @@ export class H2Tool extends Tool {
     tags = ['h2'];
     command = HeadingCommand;
 
-    execute() {
-        return document.execCommand(this.command, null, 'H2');
+    execute(editor: HTMLElement) {
+        this.edit(editor, 'H2');
     }
 }
 
@@ -63,8 +63,8 @@ export class H3Tool extends Tool {
     tags = ['h3'];
     command = HeadingCommand;
 
-    execute() {
-        return document.execCommand(this.command, null, 'H3');
+    execute(editor: HTMLElement) {
+        this.edit(editor, 'H3');
     }
 }
 

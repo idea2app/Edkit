@@ -50,6 +50,13 @@ https://ideapp.dev/React-MobX-Bootstrap-ts/#/component
 3. Audio
 4. Video
 
+### Control
+
+1. Undo
+2. Redo
+3. Reset
+4. Clear
+
 ## Usage
 
 ### Installation

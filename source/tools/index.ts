@@ -23,11 +23,13 @@ import {
     HorizontalRuleTool
 } from './Layout';
 import { IFrameTool, ImageTool, AudioTool, VideoTool } from './Media';
+import { UndoTool, RedoTool, ResetTool, ClearTool } from './Control';
 
 export * from './Text';
 export * from './Color';
 export * from './Layout';
 export * from './Media';
+export * from './Control';
 
 export const TextTools = [
     BoldTool,
@@ -54,10 +56,12 @@ export const LayoutTools = [
     HorizontalRuleTool
 ];
 export const MediaTools = [IFrameTool, ImageTool, AudioTool, VideoTool];
+export const ControlTools = [UndoTool, RedoTool, ResetTool, ClearTool];
 
 export const OriginalTools = [
     ...TextTools,
     ...ColorTools,
     ...LayoutTools,
-    ...MediaTools
+    ...MediaTools,
+    ...ControlTools
 ];

@@ -52,7 +52,7 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
 
         return (
             <>
-                <header>{toolList.map(tool => tool.render())}</header>
+                <header>{toolList.map(tool => tool.render(this.box))}</header>
                 <div
                     ref={this.box}
                     className="form-control h-auto"
