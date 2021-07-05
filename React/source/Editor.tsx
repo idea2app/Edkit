@@ -1,6 +1,5 @@
 import React, { createRef, PropsWithoutRef, PureComponent } from 'react';
-
-import { Tool } from './Tool';
+import { Tool } from 'edkit';
 
 export type EditorProps = PropsWithoutRef<{
     tools: { new (...args: any[]): Tool }[];

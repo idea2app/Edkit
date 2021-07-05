@@ -9,12 +9,5 @@
         "declaration": true,
         "outDir": "dist/"
     },
-    "include": ["source/**/*"],
-    "typedocOptions": {
-        "name": "Edkit",
-        "excludeExternals": true,
-        "excludePrivate": true,
-        "readme": "./ReadMe.md",
-        "out": "docs/"
-    }
+    "include": ["source/*"]
 }

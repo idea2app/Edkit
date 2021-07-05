@@ -1,47 +1,38 @@
 {
-    "name": "react-bootstrap-editor",
-    "version": "0.8.0",
+    "name": "edkit",
+    "version": "1.0.0-alpha",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
-    "description": "Lightweight Rich Text Editor based on TypeScript, React & Bootstrap",
+    "description": "Lightweight Rich Text Editor toolkit based on TypeScript",
     "keywords": [
         "rich-text",
         "html",
         "editor",
-        "typescript",
-        "react",
-        "bootstrap"
+        "typescript"
     ],
-    "homepage": "https://ideapp.dev/React-Bootstrap-editor/",
+    "homepage": "https://ideapp.dev/Edkit/",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/idea2app/React-Bootstrap-editor.git"
+        "url": "git+https://github.com/idea2app/Edkit.git"
     },
     "bugs": {
-        "url": "https://github.com/idea2app/React-Bootstrap-editor/issues"
+        "url": "https://github.com/idea2app/Edkit/issues"
     },
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
-    "peerDependencies": {
-        "react": ">=16.0.0",
-        "browser-fs-access": "^0.17.0"
+    "dependencies": {
+        "browser-fs-access": "^0.18.0"
     },
     "devDependencies": {
-        "@types/react": "^17.0.9",
-        "@types/react-dom": "^17.0.6",
-        "browser-fs-access": "^0.17.3",
         "esbuild": "^0.11.23",
-        "husky": "^6.0.0",
+        "husky": "^7.0.0",
         "lint-staged": "^11.0.0",
-        "open-cli": "^6.0.1",
-        "parcel-bundler": "^1.12.5",
-        "prettier": "^2.3.1",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "typedoc": "^0.21.0-beta.2",
-        "typescript": "^4.3.2"
+        "open-cli": "^7.0.0",
+        "prettier": "^2.3.2",
+        "typedoc": "^0.21.2",
+        "typescript": "^4.3.5"
     },
     "prettier": {
         "singleQuote": true,
@@ -56,12 +47,11 @@
         "prepare": "husky install",
         "test": "lint-staged",
         "pack-type": "tsc --emitDeclarationOnly",
-        "pack-dist": "esbuild source/index.ts --bundle --minify --sourcemap --external:react --external:react-bootstrap",
+        "pack-dist": "esbuild source/index.ts --bundle --minify --sourcemap",
         "pack-cjs": "npm run pack-dist -- --format=cjs --outfile=dist/index.js",
         "pack-esm": "npm run pack-dist -- --format=esm --outfile=dist/index.esm.js",
         "pack-docs": "rm -rf docs/  &&  typedoc source/",
         "build": "rm -rf dist/  &&  npm run pack-type  &&  npm run pack-cjs  &&  npm run pack-esm  &&  npm run pack-docs",
-        "start": "cd test/  &&  parcel index.html --open",
         "help": "npm run pack-docs  &&  open-cli docs/index.html",
         "prepublishOnly": "npm test  &&  npm run build"
     }

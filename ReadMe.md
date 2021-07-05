@@ -1,110 +1,74 @@
-# React Bootstrap editor
+# Edkit
 
-Lightweight **Rich Text Editor** based on [TypeScript][1], [React][2] & [Bootstrap][3]
+Lightweight **Rich Text Editor** toolkit based on [TypeScript][1]
 
-[![NPM Dependency](https://david-dm.org/idea2app/React-Bootstrap-editor.svg)][4]
-[![CI & CD](https://github.com/idea2app/React-Bootstrap-editor/workflows/CI%20&%20CD/badge.svg)][5]
+[![NPM Dependency](https://david-dm.org/idea2app/Edkit.svg)][2]
+[![CI & CD](https://github.com/idea2app/Edkit/workflows/CI%20&%20CD/badge.svg)][3]
 
-[![NPM](https://nodei.co/npm/react-bootstrap-editor.png?downloads=true&downloadRank=true&stars=true)][6]
+[![NPM](https://nodei.co/npm/edkit.png?downloads=true&downloadRank=true&stars=true)][4]
 
 ## Demo
 
 https://ideapp.dev/React-MobX-Bootstrap-ts/#/component
 
+## Usage
+
+### Application developers
+
+1. [React + Bootstrap](https://github.com/idea2app/Edkit/tree/master/React/)
+2. WebCell + Bootstrap
+
+### Library developers
+
+[Example with React](https://github.com/idea2app/Edkit/tree/master/React/source/)
+
 ## Tools
 
 ### Text
 
-1. Bold
-2. Italic
-3. Underline
-4. Strike through
-5. H1
-6. H2
-7. H3
-8. Font Size down
-9. Font Size up
-10. Subscript
-11. Superscript
-12. Link
+1. [Bold](https://ideapp.dev/Edkit/classes/tools_text.boldtool.html)
+2. [Italic](https://ideapp.dev/Edkit/classes/tools_text.italictool.html)
+3. [Underline](https://ideapp.dev/Edkit/classes/tools_text.underlinetool.html)
+4. [Strike through](https://ideapp.dev/React-Bootstrap-editor/classes/tools_text.strikethroughtool.html)
+5. [H1](https://ideapp.dev/React-Bootstrap-editor/classes/tools_text.h1tool.html)
+6. [H2](https://ideapp.dev/React-Bootstrap-editor/classes/tools_text.h2tool.html)
+7. [H3](https://ideapp.dev/React-Bootstrap-editor/classes/tools_text.h3tool.html)
+8. [Font Size down](https://ideapp.dev/React-Bootstrap-editor/classes/tools_text.fontsizedowntool.html)
+9. [Font Size up](https://ideapp.dev/React-Bootstrap-editor/classes/tools_text.fontsizeuptool.html)
+10. [Subscript](https://ideapp.dev/React-Bootstrap-editor/classes/tools_text.subscripttool.html)
+11. [Superscript](https://ideapp.dev/React-Bootstrap-editor/classes/tools_text.superscripttool.html)
+12. [Link](https://ideapp.dev/React-Bootstrap-editor/classes/tools_text.linktool.html)
 
 ### Color
 
-1. Fore Color
-2. Back Color
+1. [Fore Color](https://ideapp.dev/React-Bootstrap-editor/classes/tools_color.forecolortool.html)
+2. [Back Color](https://ideapp.dev/React-Bootstrap-editor/classes/tools_color.backcolortool.html)
 
 ### Layout
 
-1. Align Left
-2. Align Center
-3. Align Right
-4. Align Full
-5. Ordered list
-6. Unordered list
-7. Horizontal rule
+1. [Align Left](https://ideapp.dev/React-Bootstrap-editor/classes/tools_layout.alignlefttool.html)
+2. [Align Center](https://ideapp.dev/React-Bootstrap-editor/classes/tools_layout.aligncentertool.html)
+3. [Align Right](https://ideapp.dev/React-Bootstrap-editor/classes/tools_layout.alignrighttool.html)
+4. [Align Full](https://ideapp.dev/React-Bootstrap-editor/classes/tools_layout.alignfulltool.html)
+5. [Ordered list](https://ideapp.dev/React-Bootstrap-editor/classes/tools_layout.orderedlisttool.html)
+6. [Unordered list](https://ideapp.dev/React-Bootstrap-editor/classes/tools_layout.unorderedlisttool.html)
+7. [Horizontal rule](https://ideapp.dev/React-Bootstrap-editor/classes/tools_layout.horizontalruletool.html)
 
 ### Media
 
-1. Embed Web page
-2. Image
-3. Audio
-4. Video
+1. [Embed Web page](https://ideapp.dev/React-Bootstrap-editor/classes/tools_media.iframetool.html)
+2. [Image](https://ideapp.dev/React-Bootstrap-editor/classes/tools_media.imagetool.html)
+3. [Audio](https://ideapp.dev/React-Bootstrap-editor/classes/tools_media.audiotool.html)
+4. [Video](https://ideapp.dev/React-Bootstrap-editor/classes/tools_media.videotool.html)
 
 ### Control
 
-1. Undo
-2. Redo
-3. Reset
-4. Clear
-
-## Usage
-
-### Installation
-
-#### Shell command
-
-```shell
-npm install react-bootstrap-editor \
-    react browser-fs-access
-```
-
-#### HTML entry
-
-```html
-<head>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    />
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
-    />
-</head>
-```
-
-### Initialization
-
-```javascript
-import React, { PureComponent } from 'react';
-import { Editor, OriginalTools } from 'react-bootstrap-editor';
-
-export class PostEdit extends PureComponent {
-    render() {
-        return (
-            <Editor
-                tools={OriginalTools}
-                value="<p>test</p>"
-                onChange={console.log}
-            />
-        );
-    }
-}
-```
+1. [Undo](https://ideapp.dev/React-Bootstrap-editor/classes/tools_control.undotool.html)
+2. [Redo](https://ideapp.dev/React-Bootstrap-editor/classes/tools_control.redotool.html)
+3. [Reset](https://ideapp.dev/React-Bootstrap-editor/classes/tools_control.resettool.html)
+4. [Clear](https://ideapp.dev/React-Bootstrap-editor/classes/tools_control.cleartool.html)
 
 [1]: https://www.typescriptlang.org/
-[2]: https://reactjs.org/
-[3]: https://getbootstrap.com/
-[4]: https://david-dm.org/idea2app/React-Bootstrap-editor
-[5]: https://github.com/idea2app/React-Bootstrap-editor/actions
-[6]: https://nodei.co/npm/react-bootstrap-editor/
+[2]: https://david-dm.org/idea2app/Edkit
+[3]: https://github.com/idea2app/Edkit/actions
+[4]: https://nodei.co/npm/edkit/

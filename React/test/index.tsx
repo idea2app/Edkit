@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { OriginalTools } from 'edkit';
 
-import { Editor, OriginalTools } from '../source';
+import { Editor } from '../source';
 
 render(
     <div className="container">

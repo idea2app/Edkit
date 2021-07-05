@@ -1,4 +1,3 @@
-import React, { RefObject } from 'react';
 import { fileOpen } from 'browser-fs-access';
 
 export function getAnchorElement() {
@@ -46,6 +45,18 @@ export abstract class Tool {
         return this.getActive();
     }
 
+    get title() {
+        const { name, keys, usable } = this;
+
+        return `${name}${
+            usable
+                ? keys
+                    ? `\n(${keys.join(' + ')})`
+                    : ''
+                : '\n(not supported)'
+        }`;
+    }
+
     protected edit(editor: HTMLElement, ...data: any[]) {
         editor.focus();
         document.execCommand(this.command, null, ...data);
@@ -65,34 +76,14 @@ export abstract class Tool {
         this.edit(editor, ...values);
     }
 
-    render(editor: RefObject<HTMLElement>) {
-        const { name, keys, active, icon, usable } = this;
-
-        const title = `${name}${
-                usable
-                    ? keys
-                        ? `\n(${keys.join(' + ')})`
-                        : ''
-                    : '\n(not supported)'
-            }`,
-            Class = `btn btn-${
-                (active ? '' : 'outline-') + 'secondary'
-            } mr-2 mb-2`;
-
-        return (
-            <button
-                key={icon}
-                type="button"
-                title={title}
-                className={Class}
-                style={{ cursor: usable ? 'pointer' : 'not-allowed' }}
-                disabled={!usable}
-                onClick={() => editor.current && this.execute(editor.current)}
-            >
-                <i className={`bi-${icon}`} />
-            </button>
-        );
-    }
+    /**
+     * Render a Tool control
+     *
+     * @param editor An `HTMLElement` object or its wrapper for `[contenteditable="true"]`
+     *
+     * @returns Virtual DOM of UI engines
+     */
+    render(editor: any): any {}
 }
 
 export abstract class FileTool extends Tool {

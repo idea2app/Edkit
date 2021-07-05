@@ -1,0 +1,41 @@
+{
+    "name": "react-bootstrap-editor",
+    "version": "1.0.0-alpha",
+    "license": "LGPL-3.0",
+    "author": "shiy2008@gmail.com",
+    "description": "Lightweight Rich Text Editor based on TypeScript, React & Bootstrap",
+    "keywords": [
+        "rich-text",
+        "html",
+        "editor",
+        "typescript",
+        "react",
+        "bootstrap"
+    ],
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "source": "source/index.ts",
+    "types": "dist/index.d.ts",
+    "peerDependencies": {
+        "edkit": "file:.."
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.13",
+        "@types/react-dom": "^17.0.8",
+        "edkit": "file:..",
+        "esbuild": "^0.11.23",
+        "parcel-bundler": "^1.12.5",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "typescript": "^4.3.5"
+    },
+    "scripts": {
+        "start": "cd test/  &&  parcel index.html --open",
+        "pack-type": "tsc --emitDeclarationOnly",
+        "pack-dist": "esbuild source/index.ts --bundle --minify --sourcemap",
+        "pack-cjs": "npm run pack-dist -- --format=cjs --outfile=dist/index.js",
+        "pack-esm": "npm run pack-dist -- --format=esm --outfile=dist/index.esm.js",
+        "build": "rm -rf dist/  &&  npm run pack-type  &&  npm run pack-cjs  &&  npm run pack-esm",
+        "prepublishOnly": "npm run build"
+    }
+}
