@@ -83,7 +83,7 @@ export abstract class Tool {
      *
      * @returns Virtual DOM of UI engines
      */
-    render(editor: any): any {}
+    abstract render(editor: any): any;
 }
 
 export abstract class FileTool extends Tool {

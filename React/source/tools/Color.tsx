@@ -1,5 +1,10 @@
 import React, { PropsWithoutRef, RefObject } from 'react';
-import { ColorName, ColorTool } from 'edkit';
+import {
+    ColorName,
+    ColorTool,
+    ForeColorTool as FCT,
+    BackColorTool as BCT
+} from 'edkit';
 
 export type ColorSelectorProps = PropsWithoutRef<{
     className?: string;
@@ -53,7 +58,10 @@ export function ColorSelector({
     );
 }
 
-ColorTool.prototype.render = function (editor: RefObject<HTMLElement>) {
+export function renderColorTool(
+    this: ColorTool,
+    editor: RefObject<HTMLElement>
+) {
     const { icon, name, colorName } = this;
 
     return (
@@ -69,4 +77,14 @@ ColorTool.prototype.render = function (editor: RefObject<HTMLElement>) {
             }
         />
     );
-};
+}
+
+export class ForeColorTool extends FCT {
+    icon = 'file-earmark-font';
+    render = renderColorTool;
+}
+
+export class BackColorTool extends BCT {
+    icon = 'file-earmark-font-fill';
+    render = renderColorTool;
+}

@@ -1,26 +1,22 @@
 import { Tool } from '../Tool';
 
-export class UndoTool extends Tool {
+export abstract class UndoTool extends Tool {
     name = 'Undo';
-    icon = 'arrow-counterclockwise';
     command = 'undo';
 }
 
-export class RedoTool extends Tool {
+export abstract class RedoTool extends Tool {
     name = 'Redo';
-    icon = 'arrow-clockwise';
     command = 'redo';
 }
 
-export class ResetTool extends Tool {
+export abstract class ResetTool extends Tool {
     name = 'Reset';
-    icon = 'eraser';
     command = 'removeFormat';
 }
 
-export class ClearTool extends Tool {
+export abstract class ClearTool extends Tool {
     name = 'Clear';
-    icon = 'file-earmark-x';
 
     execute(editor: HTMLElement) {
         editor.focus();

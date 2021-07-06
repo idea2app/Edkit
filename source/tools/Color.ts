@@ -32,16 +32,14 @@ export abstract class ColorTool extends Tool {
     }
 }
 
-export class ForeColorTool extends ColorTool {
+export abstract class ForeColorTool extends ColorTool {
     name = 'Fore Color';
-    icon = 'file-earmark-font';
     command = 'foreColor';
     colorName = 'color' as ColorName;
 }
 
-export class BackColorTool extends ColorTool {
+export abstract class BackColorTool extends ColorTool {
     name = 'Back Color';
-    icon = 'file-earmark-font-fill';
     command = 'backColor';
     colorName = 'backgroundColor' as ColorName;
 }

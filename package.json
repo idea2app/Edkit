@@ -1,6 +1,6 @@
 {
     "name": "edkit",
-    "version": "1.0.0-alpha",
+    "version": "1.0.0-rc",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "description": "Lightweight Rich Text Editor toolkit based on TypeScript",
@@ -18,17 +18,17 @@
     "bugs": {
         "url": "https://github.com/idea2app/Edkit/issues"
     },
-    "main": "dist/index.js",
-    "module": "dist/index.esm.js",
+    "main": "dist/index.umd.js",
+    "module": "dist/index.js",
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
     "dependencies": {
         "browser-fs-access": "^0.18.0"
     },
     "devDependencies": {
-        "esbuild": "^0.11.23",
         "husky": "^7.0.0",
         "lint-staged": "^11.0.0",
+        "microbundle": "^0.13.3",
         "open-cli": "^7.0.0",
         "prettier": "^2.3.2",
         "typedoc": "^0.21.2",
@@ -46,12 +46,9 @@
     "scripts": {
         "prepare": "husky install",
         "test": "lint-staged",
-        "pack-type": "tsc --emitDeclarationOnly",
-        "pack-dist": "esbuild source/index.ts --bundle --minify --sourcemap",
-        "pack-cjs": "npm run pack-dist -- --format=cjs --outfile=dist/index.js",
-        "pack-esm": "npm run pack-dist -- --format=esm --outfile=dist/index.esm.js",
+        "pack-dist": "rm -rf dist/  &&  microbundle --name Edkit --external browser-fs-access",
         "pack-docs": "rm -rf docs/  &&  typedoc source/",
-        "build": "rm -rf dist/  &&  npm run pack-type  &&  npm run pack-cjs  &&  npm run pack-esm  &&  npm run pack-docs",
+        "build": "npm run pack-dist  &&  npm run pack-docs",
         "help": "npm run pack-docs  &&  open-cli docs/index.html",
         "prepublishOnly": "npm test  &&  npm run build"
     }

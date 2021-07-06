@@ -1,8 +1,7 @@
 import { Tool, FileTool } from '../Tool';
 
-export class IFrameTool extends Tool {
+export abstract class IFrameTool extends Tool {
     name = 'Embed Web page';
-    icon = 'window';
     tags = ['iframe'];
     command = 'insertHTML';
 
@@ -17,16 +16,14 @@ export class IFrameTool extends Tool {
     }
 }
 
-export class ImageTool extends FileTool {
+export abstract class ImageTool extends FileTool {
     name = 'Image';
-    icon = 'image';
     tags = ['img'];
     command = 'insertImage';
 }
 
-export class AudioTool extends FileTool {
+export abstract class AudioTool extends FileTool {
     name = 'Audio';
-    icon = 'voicemail';
     tags = ['audio'];
     command = 'insertHTML';
 
@@ -35,9 +32,8 @@ export class AudioTool extends FileTool {
     }
 }
 
-export class VideoTool extends FileTool {
+export abstract class VideoTool extends FileTool {
     name = 'Video';
-    icon = 'camera-video';
     tags = ['video'];
     command = 'insertHTML';
 

@@ -19,7 +19,7 @@ https://ideapp.dev/Edkit/modules/tools.html
 #### Shell command
 
 ```shell
-npm install react edkit react-bootstrap-editor
+npm install react react-bootstrap-editor
 ```
 
 #### HTML entry
@@ -41,8 +41,7 @@ npm install react edkit react-bootstrap-editor
 
 ```javascript
 import React, { PureComponent } from 'react';
-import { OriginalTools } from 'edkit';
-import { Editor } from 'react-bootstrap-editor';
+import { Editor, OriginalTools } from 'react-bootstrap-editor';
 
 export class PostEdit extends PureComponent {
     render() {

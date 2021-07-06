@@ -1,7 +1,7 @@
 import React, { RefObject } from 'react';
 import { Tool } from 'edkit';
 
-Tool.prototype.render = function (editor: RefObject<HTMLElement>) {
+export function renderTool(this: Tool, editor: RefObject<HTMLElement>) {
     const { title, active, icon, usable } = this;
 
     const Class = `btn btn-${
@@ -21,4 +21,4 @@ Tool.prototype.render = function (editor: RefObject<HTMLElement>) {
             <i className={`bi-${icon}`} />
         </button>
     );
-};
+}
