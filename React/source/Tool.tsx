@@ -16,7 +16,11 @@ export function renderTool(this: Tool, editor: RefObject<HTMLElement>) {
             className={Class}
             style={{ cursor: usable ? 'pointer' : 'not-allowed' }}
             disabled={!usable}
-            onClick={() => editor.current && this.execute(editor.current)}
+            onClick={event => {
+                event.preventDefault();
+
+                if (editor.current) this.execute(editor.current);
+            }}
         >
             <i className={`bi-${icon}`} />
         </button>

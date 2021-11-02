@@ -1,6 +1,7 @@
 React/
 test/
 docs/
+.parcel-cache/
 .husky/
 .vscode/
 .github/

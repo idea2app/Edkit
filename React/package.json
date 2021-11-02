@@ -1,6 +1,6 @@
 {
     "name": "react-bootstrap-editor",
-    "version": "1.0.0-rc",
+    "version": "1.0.0-rc.1",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "description": "Lightweight Rich Text Editor based on TypeScript, React & Bootstrap",
@@ -16,25 +16,26 @@
     "bugs": {
         "url": "https://github.com/idea2app/Edkit/issues"
     },
-    "main": "dist/index.umd.js",
-    "module": "dist/index.js",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
     "dependencies": {
-        "edkit": "1.0.0-rc"
+        "@swc/helpers": "^0.2.13",
+        "edkit": "1.0.0-rc.2",
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0"
     },
     "devDependencies": {
-        "@types/react": "^17.0.13",
-        "@types/react-dom": "^17.0.8",
-        "microbundle": "^0.13.3",
-        "parcel-bundler": "^1.12.5",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "typescript": "^4.3.5"
+        "@types/react": "^16.14.20",
+        "@types/react-dom": "^16.9.14",
+        "parcel": "^2.0.0",
+        "typescript": "^4.4.4"
     },
+    "browserslist": "> 0.5%, last 2 versions, not dead",
     "scripts": {
         "start": "cd test/  &&  parcel index.html --open",
-        "build": "rm -rf dist/  &&  microbundle --name ReactBootstrapEditor --external edkit,react --jsx React.createElement",
+        "build": "rm -rf dist/  &&  parcel build",
         "prepublishOnly": "npm run build"
     }
 }

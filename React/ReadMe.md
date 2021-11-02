@@ -10,7 +10,7 @@ https://ideapp.dev/React-MobX-Bootstrap-ts/#/component
 
 ## Tools
 
-https://ideapp.dev/Edkit/modules/tools.html
+https://github.com/idea2app/Edkit#tools
 
 ## Usage
 

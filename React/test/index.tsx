@@ -4,8 +4,8 @@ import { render } from 'react-dom';
 import { Editor, OriginalTools } from '../source';
 
 render(
-    <div className="container">
+    <form className="container">
         <Editor tools={OriginalTools} />
-    </div>,
+    </form>,
     document.querySelector('main')
 );

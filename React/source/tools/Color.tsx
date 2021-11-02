@@ -48,9 +48,13 @@ export function ColorSelector({
                     backgroundColor: type === 'color' ? 'white' : value,
                     borderColor: value
                 }}
-                onClick={({
-                    currentTarget: { previousElementSibling: picker }
-                }) => (picker as HTMLInputElement).click()}
+                onClick={event => {
+                    event.preventDefault();
+                    (
+                        event.currentTarget
+                            .previousElementSibling as HTMLInputElement
+                    ).click();
+                }}
             >
                 <i className={`bi-${icon}`} />
             </button>
