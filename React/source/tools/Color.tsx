@@ -29,12 +29,8 @@ export function ColorSelector({
             title={title}
         >
             <input
-                className="position-absolute w-100 h-100 rounded-lg"
-                style={{
-                    left: 0,
-                    top: 0,
-                    zIndex: -1
-                }}
+                className="position-absolute w-100 h-100 rounded-3"
+                style={{ left: 0, top: 0, zIndex: -1 }}
                 type="color"
                 value={value}
                 onChange={({ target: { value } }) =>
@@ -70,7 +66,7 @@ export function renderColorTool(
 
     return (
         <ColorSelector
-            className="mr-2 mb-2"
+            className="me-2 mb-2"
             key={icon}
             title={name}
             icon={icon}
