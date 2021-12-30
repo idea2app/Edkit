@@ -6,7 +6,7 @@ export function renderTool(this: Tool, editor: RefObject<HTMLElement>) {
 
     const Class = `btn btn-${
         (active ? '' : 'outline-') + 'secondary'
-    } mr-2 mb-2`;
+    } me-2 mb-2`;
 
     return (
         <button

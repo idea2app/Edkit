@@ -28,11 +28,11 @@ npm install react react-bootstrap-editor
 <head>
     <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
     />
     <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
     />
 </head>
 ```
@@ -40,7 +40,7 @@ npm install react react-bootstrap-editor
 ### Initialization
 
 ```javascript
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import { Editor, OriginalTools } from 'react-bootstrap-editor';
 
 export class PostEdit extends PureComponent {

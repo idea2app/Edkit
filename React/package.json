@@ -1,6 +1,6 @@
 {
     "name": "react-bootstrap-editor",
-    "version": "1.0.0-rc.2",
+    "version": "1.0.0-rc.3",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "description": "Lightweight Rich Text Editor based on TypeScript, React & Bootstrap",
@@ -22,7 +22,7 @@
     "types": "dist/index.d.ts",
     "dependencies": {
         "@swc/helpers": "^0.3.2",
-        "edkit": "^1.0.0-rc.2",
+        "edkit": "^1.0.0-rc.3",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
     },
