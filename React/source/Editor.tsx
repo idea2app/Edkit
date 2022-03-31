@@ -1,8 +1,8 @@
-import React, { createRef, PropsWithoutRef, PureComponent } from 'react';
 import { Tool } from 'edkit';
+import React, { createRef, PropsWithoutRef, PureComponent } from 'react';
 
 export type EditorProps = PropsWithoutRef<{
-    tools: { new (...args: any[]): Tool }[];
+    tools: { new(...args: any[]): Tool }[];
     value?: string;
     onChange?(value: string): any;
 }>;
@@ -45,6 +45,13 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
             this.setState({ toolList: [...this.state.toolList] });
     };
 
+    dealHtml = (html) => {
+        return html?.replace(
+            /\<img/gi,
+            '<img style="max-width:100%;height:auto" '
+        );
+    }
+
     render() {
         const { toolList, data } = this.state,
             { onChange } = this.props;
@@ -57,9 +64,9 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
                     className="form-control h-auto"
                     contentEditable
                     dangerouslySetInnerHTML={{ __html: data }}
-                    onInput={({ target }) =>
-                        onChange && onChange((target as HTMLElement).innerHTML)
-                    }
+                    onInput={({ target }) => {
+                        onChange && onChange(this.dealHtml((target as HTMLElement).innerHTML))
+                    }}
                 />
             </>
         );
