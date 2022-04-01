@@ -58,9 +58,9 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
                     className="form-control h-auto"
                     contentEditable
                     dangerouslySetInnerHTML={{ __html: data }}
-                    onInput={({ target }) => {
-                        onChange && onChange((target as HTMLElement).innerHTML);
-                    }}
+                    onInput={({ target }) => 
+                        onChange && onChange((target as HTMLElement).innerHTML)
+                    }
                 />
             </>
         );

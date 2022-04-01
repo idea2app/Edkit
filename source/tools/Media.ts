@@ -19,9 +19,9 @@ export abstract class IFrameTool extends Tool {
 export abstract class ImageTool extends FileTool {
     name = 'Image';
     tags = ['img'];
-    command = 'insertImage';
+    command = 'insertHTML';
 
-    codeOf(path: string){
+    codeOf(path: string) {
         return `<img style="max-width: 100%; height: auto" src="${path}"/>`;
     }
 }
