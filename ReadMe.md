@@ -3,7 +3,7 @@
 Lightweight **Rich Text Editor** toolkit based on [TypeScript][1]
 
 [![NPM Dependency](https://david-dm.org/idea2app/Edkit.svg)][2]
-[![CI & CD](https://github.com/idea2app/Edkit/workflows/CI%20&%20CD/badge.svg)][3]
+[![CI & CD](https://github.com/idea2app/Edkit/actions/workflows/main.yml/badge.svg)][3]
 
 [![NPM](https://nodei.co/npm/edkit.png?downloads=true&downloadRank=true&stars=true)][4]
 
@@ -70,5 +70,5 @@ https://ideapp.dev/React-MobX-Bootstrap-ts/#/component
 
 [1]: https://www.typescriptlang.org/
 [2]: https://david-dm.org/idea2app/Edkit
-[3]: https://github.com/idea2app/Edkit/actions
+[3]: https://github.com/idea2app/Edkit/actions/workflows/main.yml
 [4]: https://nodei.co/npm/edkit/

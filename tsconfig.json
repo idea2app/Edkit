@@ -5,6 +5,7 @@
         "moduleResolution": "Node",
         "esModuleInterop": true,
         "lib": ["ES2021", "DOM"],
+        "skipLibCheck": true,
         "declaration": true,
         "outDir": "dist/"
     },
