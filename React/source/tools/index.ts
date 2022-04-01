@@ -66,7 +66,7 @@ export const OriginalTools = [
     ...ControlTools
 ];
 
-export default [
+export const DefaultTools = [
     BoldTool,
     ItalicTool,
     UnderlineTool,
@@ -89,4 +89,4 @@ export default [
     UndoTool,
     RedoTool,
     ClearTool
-]
+];

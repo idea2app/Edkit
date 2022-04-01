@@ -1,8 +1,9 @@
 import { Tool } from 'edkit';
 import React, { createRef, PropsWithoutRef, PureComponent } from 'react';
+import { DefaultTools } from './tools';
 
 export type EditorProps = PropsWithoutRef<{
-    tools: { new(...args: any[]): Tool }[];
+    tools: { new (...args: any[]): Tool }[];
     value?: string;
     onChange?(value: string): any;
 }>;
@@ -21,7 +22,7 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
     };
 
     static getDerivedStateFromProps(
-        { tools, value }: EditorProps,
+        { tools = DefaultTools, value }: EditorProps,
         { toolList, data }: EditorState
     ): EditorState {
         return {
@@ -58,7 +59,7 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
                     contentEditable
                     dangerouslySetInnerHTML={{ __html: data }}
                     onInput={({ target }) => {
-                        onChange && onChange((target as HTMLElement).innerHTML)
+                        onChange && onChange((target as HTMLElement).innerHTML);
                     }}
                 />
             </>
