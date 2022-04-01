@@ -1,5 +1,6 @@
-import React, { createRef, PropsWithoutRef, PureComponent } from 'react';
 import { Tool } from 'edkit';
+import React, { createRef, PropsWithoutRef, PureComponent } from 'react';
+import { DefaultTools } from './tools';
 
 export type EditorProps = PropsWithoutRef<{
     tools: { new (...args: any[]): Tool }[];
@@ -21,7 +22,7 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
     };
 
     static getDerivedStateFromProps(
-        { tools, value }: EditorProps,
+        { tools = DefaultTools, value }: EditorProps,
         { toolList, data }: EditorState
     ): EditorState {
         return {
@@ -57,7 +58,7 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
                     className="form-control h-auto"
                     contentEditable
                     dangerouslySetInnerHTML={{ __html: data }}
-                    onInput={({ target }) =>
+                    onInput={({ target }) => 
                         onChange && onChange((target as HTMLElement).innerHTML)
                     }
                 />

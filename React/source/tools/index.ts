@@ -65,3 +65,28 @@ export const OriginalTools = [
     ...MediaTools,
     ...ControlTools
 ];
+
+export const DefaultTools = [
+    BoldTool,
+    ItalicTool,
+    UnderlineTool,
+    StrikeThroughTool,
+    H1Tool,
+    H2Tool,
+    H3Tool,
+    SubscriptTool,
+    SuperscriptTool,
+    ForeColorTool,
+    BackColorTool,
+    AlignLeftTool,
+    AlignCenterTool,
+    AlignRightTool,
+    AlignFullTool,
+    OrderedListTool,
+    UnorderedListTool,
+    HorizontalRuleTool,
+    ImageTool,
+    UndoTool,
+    RedoTool,
+    ClearTool
+];
