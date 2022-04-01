@@ -45,13 +45,6 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
             this.setState({ toolList: [...this.state.toolList] });
     };
 
-    dealHtml = (html) => {
-        return html?.replace(
-            /\<img/gi,
-            '<img style="max-width:100%;height:auto" '
-        );
-    }
-
     render() {
         const { toolList, data } = this.state,
             { onChange } = this.props;
@@ -65,7 +58,7 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
                     contentEditable
                     dangerouslySetInnerHTML={{ __html: data }}
                     onInput={({ target }) => {
-                        onChange && onChange(this.dealHtml((target as HTMLElement).innerHTML))
+                        onChange && onChange((target as HTMLElement).innerHTML)
                     }}
                 />
             </>

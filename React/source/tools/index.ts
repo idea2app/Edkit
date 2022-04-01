@@ -66,7 +66,7 @@ export const OriginalTools = [
     ...ControlTools
 ];
 
-export const DefaultTools = [
+export default [
     BoldTool,
     ItalicTool,
     UnderlineTool,

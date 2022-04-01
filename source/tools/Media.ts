@@ -20,6 +20,10 @@ export abstract class ImageTool extends FileTool {
     name = 'Image';
     tags = ['img'];
     command = 'insertImage';
+
+    codeOf(path: string){
+        return `<img style="max-width: 100%; height: auto" src="${path}"/>`;
+    }
 }
 
 export abstract class AudioTool extends FileTool {
