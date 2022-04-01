@@ -1,8 +1,11 @@
 {
     "name": "react-bootstrap-editor",
-    "version": "1.0.0-rc.3",
+    "version": "1.0.0-rc.4",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
+    "contributors": [
+        "1101077695@qq.com"
+    ],
     "description": "Lightweight Rich Text Editor based on TypeScript, React & Bootstrap",
     "keywords": [
         "rich-text",
@@ -21,15 +24,15 @@
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@swc/helpers": "^0.3.2",
-        "edkit": "^1.0.0-rc.3",
+        "@swc/helpers": "^0.3.8",
+        "edkit": "^1.0.0-rc.4",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
     },
     "devDependencies": {
-        "@types/react": "^17.0.38",
-        "@types/react-dom": "^17.0.11",
-        "parcel": "^2.0.1",
+        "@types/react": "^17.0.43",
+        "@types/react-dom": "^17.0.14",
+        "parcel": "^2.4.1",
         "typescript": "~4.4.4"
     },
     "browserslist": "> 0.5%, last 2 versions, not dead",
