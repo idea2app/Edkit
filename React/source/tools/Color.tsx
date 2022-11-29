@@ -33,9 +33,7 @@ export function ColorSelector({
                 style={{ left: 0, top: 0, zIndex: -1 }}
                 type="color"
                 value={value}
-                onChange={({ target: { value } }) =>
-                    onChange && onChange(value)
-                }
+                onChange={({ target: { value } }) => onChange?.(value)}
             />
             <button
                 className="btn"

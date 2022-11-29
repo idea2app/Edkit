@@ -1,6 +1,6 @@
 {
     "name": "react-bootstrap-editor",
-    "version": "1.0.0-rc.4",
+    "version": "1.0.0-rc.6",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "contributors": [
@@ -24,16 +24,17 @@
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@swc/helpers": "^0.3.8",
-        "edkit": "^1.0.0-rc.4",
+        "@swc/helpers": "^0.4.14",
+        "edkit": "^1.0.0-rc.5",
         "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react-dom": "^17.0.2",
+        "web-utility": "^3.9.9"
     },
     "devDependencies": {
-        "@types/react": "^17.0.43",
-        "@types/react-dom": "^17.0.14",
-        "parcel": "^2.4.1",
-        "typescript": "~4.4.4"
+        "@types/react": "^17.0.52",
+        "@types/react-dom": "^17.0.18",
+        "parcel": "~2.6.2",
+        "typescript": "~4.7.4"
     },
     "browserslist": "> 0.5%, last 2 versions, not dead",
     "scripts": {
