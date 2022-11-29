@@ -4,8 +4,9 @@
         "module": "ES6",
         "moduleResolution": "Node",
         "esModuleInterop": true,
+        "downlevelIteration": true,
         "jsx": "react",
-        "lib": ["ES2021", "DOM"],
+        "lib": ["ES2021", "DOM", "DOM.Iterable"],
         "declaration": true,
         "outDir": "dist/"
     },
