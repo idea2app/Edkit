@@ -96,12 +96,11 @@ export abstract class FileTool extends Tool {
     }
 
     async execute(editor: HTMLElement) {
-        const path = self.confirm(
-            'Confirm to upload a file, or cancel to input a path.'
-        )
-            ? await this.save(await fileOpen())
-            : self.prompt('Path');
-
+        try {
+            var path = await this.save(await fileOpen());
+        } catch {
+            var path = self.prompt('No file uploaded, please input an URL');
+        }
         if (path) this.edit(editor, this.codeOf(path));
     }
 }
