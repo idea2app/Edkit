@@ -1,11 +1,5 @@
 import { Tool } from 'edkit';
-import React, {
-    createRef,
-    PropsWithoutRef,
-    PureComponent,
-    ClipboardEvent,
-    DragEvent
-} from 'react';
+import { createRef, PureComponent, ClipboardEvent, DragEvent } from 'react';
 import {
     Constructor,
     parseDOM,
@@ -16,11 +10,11 @@ import {
 
 import { ImageTool, AudioTool, VideoTool, DefaultTools } from './tools';
 
-export type EditorProps = PropsWithoutRef<{
+export interface EditorProps {
     tools?: { new (...args: any[]): Tool }[];
     defaultValue?: string;
-    onChange?(value: string): any;
-}>;
+    onChange?: (value: string) => any;
+}
 
 interface EditorState {
     toolList: Tool[];
