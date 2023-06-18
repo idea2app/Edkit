@@ -1,5 +1,13 @@
 import { Tool } from 'edkit';
-import { createRef, PureComponent, ClipboardEvent, DragEvent } from 'react';
+import { observable } from 'mobx';
+import { observer } from 'mobx-react';
+import {
+    createRef,
+    InputHTMLAttributes,
+    PureComponent,
+    ClipboardEvent,
+    DragEvent
+} from 'react';
 import {
     Constructor,
     parseDOM,
@@ -10,51 +18,59 @@ import {
 
 import { ImageTool, AudioTool, VideoTool, DefaultTools } from './tools';
 
-export interface EditorProps {
-    tools?: { new (...args: any[]): Tool }[];
-    defaultValue?: string;
+export interface EditorProps
+    extends Pick<
+        InputHTMLAttributes<HTMLInputElement>,
+        'name' | 'defaultValue'
+    > {
+    tools?: Constructor<Tool>[];
     onChange?: (value: string) => any;
 }
 
-interface EditorState {
-    toolList: Tool[];
-    data: string;
-}
-
-export class Editor extends PureComponent<EditorProps, EditorState> {
+@observer
+export class Editor extends PureComponent<EditorProps> {
     static displayName = 'Editor';
 
     box = createRef<HTMLDivElement>();
 
-    state = {
-        toolList: [] as Tool[],
-        data: ''
-    };
+    @observable
+    toolList: Tool[] = [];
 
-    static getDerivedStateFromProps(
-        { tools = DefaultTools, defaultValue }: EditorProps,
-        { toolList, data }: EditorState
-    ): EditorState {
-        return {
-            toolList: toolList[0]
-                ? toolList
-                : tools.map(ToolButton => new ToolButton()),
-            data: data || defaultValue
-        };
-    }
+    defaultValue = this.props.defaultValue;
+
+    @observable
+    innerValue = this.defaultValue;
 
     componentDidMount() {
+        this.bootTools();
+
         document.addEventListener('selectionchange', this.updateTools);
+    }
+
+    componentDidUpdate({ tools }: Readonly<EditorProps>) {
+        if (tools !== this.props.tools) this.bootTools();
     }
 
     componentWillUnmount() {
         document.removeEventListener('selectionchange', this.updateTools);
     }
 
+    bootTools() {
+        const { tools = DefaultTools } = this.props;
+
+        this.toolList = tools.map(ToolButton => new ToolButton());
+    }
+
     updateTools = () => {
         if (this.box.current === document.activeElement)
-            this.setState({ toolList: [...this.state.toolList] });
+            this.toolList = [...this.toolList];
     };
+
+    updateValue(markup: string) {
+        this.innerValue = markup = markup.trim();
+
+        this.props.onChange?.(markup);
+    }
 
     async uploadFile(
         Type:
@@ -66,7 +82,7 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
         if (typeof data === 'string' && !/^(data|blob):/.test(data))
             return data;
 
-        const tool = this.state.toolList.find(
+        const tool = this.toolList.find(
             tool => tool instanceof Type
         ) as ImageTool;
 
@@ -136,12 +152,12 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
 
                 if (URI) insertToCursor(...parseDOM(`<video src="${URI}" />`));
             }
-        this.props.onChange?.(currentTarget.innerHTML);
+        this.updateValue(currentTarget.innerHTML);
     };
 
     render() {
-        const { toolList, data } = this.state,
-            { onChange } = this.props;
+        const { toolList, defaultValue, innerValue } = this,
+            { name } = this.props;
 
         return (
             <>
@@ -150,13 +166,14 @@ export class Editor extends PureComponent<EditorProps, EditorState> {
                     ref={this.box}
                     className="form-control h-auto"
                     contentEditable
-                    dangerouslySetInnerHTML={{ __html: data }}
+                    dangerouslySetInnerHTML={{ __html: defaultValue }}
+                    onInput={({ currentTarget: { innerHTML } }) =>
+                        this.updateValue(innerHTML)
+                    }
                     onPaste={this.handlePasteDrop}
                     onDrop={this.handlePasteDrop}
-                    onInput={({ currentTarget: { innerHTML } }) =>
-                        onChange?.(innerHTML)
-                    }
                 />
+                <input type="hidden" name={name} value={innerValue} />
             </>
         );
     }

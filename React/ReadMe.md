@@ -19,7 +19,7 @@ https://github.com/idea2app/Edkit#tools
 #### Shell command
 
 ```shell
-npm install react@17 react-bootstrap-editor
+npm install react react-bootstrap-editor
 ```
 
 #### HTML entry
@@ -28,11 +28,11 @@ npm install react@17 react-bootstrap-editor
 <head>
     <link
         rel="stylesheet"
-        href="https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        href="https://unpkg.com/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     />
     <link
         rel="stylesheet"
-        href="https://unpkg.com/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        href="https://unpkg.com/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
     />
 </head>
 ```
@@ -45,7 +45,13 @@ import { Editor } from 'react-bootstrap-editor';
 
 export class PostEdit extends PureComponent {
     render() {
-        return <Editor defaultValue="<p>test</p>" onChange={console.log} />;
+        return (
+            <Editor
+                name="content"
+                defaultValue="<p>test</p>"
+                onChange={console.log}
+            />
+        );
     }
 }
 ```
