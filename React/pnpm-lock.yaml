@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.4.14
     version: 0.4.14
   edkit:
-    specifier: ^1.0.0-rc.6
-    version: 1.0.0-rc.6
+    specifier: ^1.0.0
+    version: 1.0.0
   mobx:
     specifier: ^5.15.7
     version: 5.15.7
@@ -943,8 +943,8 @@ packages:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
 
-  /browser-fs-access@0.31.2:
-    resolution: {integrity: sha512-wZSA7UgKMwR6oxddFQeSIoD7cxiNiaZT+iuVJw4/avr9t2ROwu80gxENT0YJChsLxJ7xBbLZDGHTAXfAg3Pq5Q==}
+  /browser-fs-access@0.34.1:
+    resolution: {integrity: sha512-HPaRf2yimp8kWSuWJXc8Mi78dPbDzfduA+Gyq14H4jlMvd6XNfIRm36Y2yRLaa4x0gwcGuepj4zf14oiTlxrxQ==}
     dev: false
 
   /browserslist@4.21.4:
@@ -1115,11 +1115,11 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /edkit@1.0.0-rc.6:
-    resolution: {integrity: sha512-6RpmjEqg9YqhUHDkXKvZS8V9ZDkNyFwlLQkneeywOlg/aliLTDQGo86hCnpvnlHb8MsM9TgSoSusE6Xj98IZkw==}
+  /edkit@1.0.0:
+    resolution: {integrity: sha512-W9hNc7GZ/FGPq8jWVFrFPiyU4uL3rxANfEoPgBuM3imi/bq/zzu21OBZpopJqrM1at+VEBL/6TwnIPDLN/OlyQ==}
     dependencies:
       '@swc/helpers': 0.4.14
-      browser-fs-access: 0.31.2
+      browser-fs-access: 0.34.1
       regenerator-runtime: 0.13.11
     dev: false
 

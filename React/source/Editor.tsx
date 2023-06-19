@@ -123,6 +123,13 @@ export class Editor extends PureComponent<EditorProps> {
         return fragment;
     }
 
+    insertToCursor(raw: string | Node) {
+        this.box.current?.focus();
+
+        if (typeof raw === 'string') insertToCursor(...parseDOM(raw));
+        else insertToCursor(raw);
+    }
+
     handlePasteDrop = async (event: ClipboardEvent | DragEvent) => {
         event.preventDefault();
 
@@ -138,19 +145,19 @@ export class Editor extends PureComponent<EditorProps> {
                 const raw = await new Promise<string>(resolve =>
                     item.getAsString(resolve)
                 );
-                insertToCursor(await this.clearHTML(raw));
+                this.insertToCursor(await this.clearHTML(raw));
             } else if (item.type.startsWith('image/')) {
                 const URI = await this.uploadFile(ImageTool, item.getAsFile());
 
-                if (URI) insertToCursor(...parseDOM(`<img src="${URI}" />`));
+                if (URI) this.insertToCursor(`<img src="${URI}" />`);
             } else if (item.type.startsWith('audio/')) {
                 const URI = await this.uploadFile(AudioTool, item.getAsFile());
 
-                if (URI) insertToCursor(...parseDOM(`<audio src="${URI}" />`));
+                if (URI) this.insertToCursor(`<audio src="${URI}" />`);
             } else if (item.type.startsWith('video/')) {
                 const URI = await this.uploadFile(VideoTool, item.getAsFile());
 
-                if (URI) insertToCursor(...parseDOM(`<video src="${URI}" />`));
+                if (URI) this.insertToCursor(`<video src="${URI}" />`);
             }
         this.updateValue(currentTarget.innerHTML);
     };

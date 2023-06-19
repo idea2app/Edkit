@@ -1,6 +1,6 @@
 {
     "name": "edkit",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "contributors": [
@@ -51,7 +51,7 @@
     "lint-staged": {
         "*.{html,md,less,json,yml,js,ts,tsx}": "prettier --write"
     },
-    "browserslist": "> 0.5%, last 2 versions, not dead",
+    "browserslist": "> 0.5%, last 2 versions, not dead, IE 11",
     "scripts": {
         "prepare": "husky install",
         "test": "lint-staged",
