@@ -1,5 +1,5 @@
 import { Tool } from 'edkit';
-import { observable } from 'mobx';
+import { makeObservable, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import {
     createRef,
@@ -30,6 +30,12 @@ export interface EditorProps
 @observer
 export class Editor extends PureComponent<EditorProps> {
     static displayName = 'Editor';
+
+    constructor(props: EditorProps) {
+        super(props);
+
+        makeObservable?.(this);
+    }
 
     box = createRef<HTMLDivElement>();
 

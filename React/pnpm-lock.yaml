@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.5.1
     version: 0.5.1
   edkit:
-    specifier: ^1.0.1
-    version: 1.0.1
+    specifier: ^1.0.2
+    version: 1.0.2
   mobx:
     specifier: '>=4'
     version: 6.10.0
@@ -1370,12 +1370,12 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /edkit@1.0.1:
-    resolution: {integrity: sha512-WbOe6R/tmD5/RsKdsMIN9HTaeZCnqNEjly1qQAep5mYVAQLh+WiYd8+2ctLmwxxQSTmy0qJtWo3kp1dNDh6fTw==}
+  /edkit@1.0.2:
+    resolution: {integrity: sha512-Y5q4tbk7Uaq7e37fbmpsBvs6NFd9/1kcp55aZ0+L6P7IUla94+T+dh26kcBMXNKwnDHLSEEce+ubb1tlKYcjmg==}
     dependencies:
-      '@swc/helpers': 0.4.36
+      '@swc/helpers': 0.5.1
       browser-fs-access: 0.34.1
-      regenerator-runtime: 0.13.11
+      regenerator-runtime: 0.14.0
     dev: false
 
   /electron-to-chromium@1.4.497:
@@ -1913,6 +1913,10 @@ packages:
 
   /regenerator-runtime@0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
+
+  /regenerator-runtime@0.14.0:
+    resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
+    dev: false
 
   /resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
