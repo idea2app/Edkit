@@ -2,7 +2,9 @@
 
 Lightweight **Rich Text Editor** based on [Edkit][1], [React][2] & [Bootstrap][3]
 
-[![NPM](https://nodei.co/npm/react-bootstrap-editor.png?downloads=true&downloadRank=true&stars=true)][4]
+[![NPM Dependency](https://img.shields.io/librariesio/release/npm/react-bootstrap-editor)][4]
+
+[![NPM](https://nodei.co/npm/react-bootstrap-editor.png?downloads=true&downloadRank=true&stars=true)][5]
 
 ## Demo
 
@@ -59,4 +61,5 @@ export class PostEdit extends PureComponent {
 [1]: https://github.com/idea2app/Edkit/
 [2]: https://reactjs.org/
 [3]: https://getbootstrap.com/
-[4]: https://nodei.co/npm/react-bootstrap-editor/
+[4]: https://libraries.io/npm/react-bootstrap-editor
+[5]: https://nodei.co/npm/react-bootstrap-editor/
