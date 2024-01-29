@@ -26,21 +26,21 @@
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@swc/helpers": "^0.5.1",
-        "browser-fs-access": "^0.34.1",
-        "regenerator-runtime": "^0.14.0"
+        "@swc/helpers": "^0.5.3",
+        "browser-fs-access": "^0.35.0",
+        "regenerator-runtime": "^0.14.1"
     },
     "devDependencies": {
-        "@parcel/packager-ts": "~2.9.3",
-        "@parcel/transformer-typescript-types": "~2.9.3",
-        "husky": "^8.0.3",
-        "lint-staged": "^14.0.1",
-        "open-cli": "^7.2.0",
-        "parcel": "~2.9.3",
-        "prettier": "^3.0.2",
-        "typedoc": "^0.24.8",
-        "typedoc-plugin-mdn-links": "^3.0.3",
-        "typescript": "~5.1.6"
+        "@parcel/packager-ts": "~2.11.0",
+        "@parcel/transformer-typescript-types": "~2.11.0",
+        "husky": "^9.0.7",
+        "lint-staged": "^15.2.0",
+        "open-cli": "^8.0.0",
+        "parcel": "~2.11.0",
+        "prettier": "^3.2.4",
+        "typedoc": "^0.25.7",
+        "typedoc-plugin-mdn-links": "^3.1.14",
+        "typescript": "~5.3.3"
     },
     "prettier": {
         "singleQuote": true,
@@ -58,7 +58,7 @@
         }
     },
     "scripts": {
-        "prepare": "husky install",
+        "prepare": "husky",
         "test": "lint-staged",
         "pack-dist": "rm -rf dist/  &&  parcel build",
         "pack-docs": "rm -rf docs/  &&  typedoc source/",

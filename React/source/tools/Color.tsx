@@ -1,4 +1,4 @@
-import React, { PropsWithoutRef, RefObject } from 'react';
+import { FC, PropsWithoutRef, RefObject } from 'react';
 import {
     ColorName,
     ColorTool,
@@ -15,46 +15,44 @@ export type ColorSelectorProps = PropsWithoutRef<{
     onChange?(color: string): any;
 }>;
 
-export function ColorSelector({
-    className,
+export const ColorSelector: FC<ColorSelectorProps> = ({
+    className = '',
     title,
     type,
     value,
     onChange,
     icon
-}: ColorSelectorProps) {
-    return (
-        <span
-            className={`d-inline-block align-middle position-relative ${className}`}
-            title={title}
+}) => (
+    <span
+        className={`d-inline-block align-middle position-relative ${className}`}
+        title={title}
+    >
+        <input
+            className="position-absolute w-100 h-100 rounded-3"
+            style={{ left: 0, top: 0, zIndex: -1 }}
+            type="color"
+            value={value}
+            onChange={({ target: { value } }) => onChange?.(value)}
+        />
+        <button
+            className="btn"
+            style={{
+                color: type === 'color' ? value : 'lightgray',
+                backgroundColor: type === 'color' ? 'white' : value,
+                borderColor: value
+            }}
+            onClick={event => {
+                event.preventDefault();
+                (
+                    event.currentTarget
+                        .previousElementSibling as HTMLInputElement
+                ).click();
+            }}
         >
-            <input
-                className="position-absolute w-100 h-100 rounded-3"
-                style={{ left: 0, top: 0, zIndex: -1 }}
-                type="color"
-                value={value}
-                onChange={({ target: { value } }) => onChange?.(value)}
-            />
-            <button
-                className="btn"
-                style={{
-                    color: type === 'color' ? value : 'lightgray',
-                    backgroundColor: type === 'color' ? 'white' : value,
-                    borderColor: value
-                }}
-                onClick={event => {
-                    event.preventDefault();
-                    (
-                        event.currentTarget
-                            .previousElementSibling as HTMLInputElement
-                    ).click();
-                }}
-            >
-                <i className={`bi-${icon}`} />
-            </button>
-        </span>
-    );
-}
+            <i className={`bi-${icon}`} />
+        </button>
+    </span>
+);
 
 export function renderColorTool(
     this: ColorTool,
