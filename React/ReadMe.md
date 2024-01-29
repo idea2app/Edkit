@@ -14,6 +14,14 @@ https://idea2app.github.io/React-MobX-Bootstrap-ts/#/component
 
 https://github.com/idea2app/Edkit#tools
 
+## Versions
+
+|  SemVer  |  branch  |    status    | ES decorator |    MobX     | Edkit |
+| :------: | :------: | :----------: | :----------: | :---------: | :---: |
+|  `>=2`   | `master` | ✅developing |   stage-3    |  `>=6.11`   |  v1   |
+| `>=1 <2` | `master` | ❌deprecated |   stage-2    | `>=4 <6.11` |  v1   |
+|   `<1`   |  `v0.x`  | ❌deprecated |              |             |       |
+
 ## Usage
 
 ### Installation
@@ -24,17 +32,31 @@ https://github.com/idea2app/Edkit#tools
 npm install react react-bootstrap-editor
 ```
 
+#### `tsconfig.json`
+
+```json
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "moduleResolution": "Node",
+        "useDefineForClassFields": true,
+        "experimentalDecorators": false,
+        "jsx": "react-jsx"
+    }
+}
+```
+
 #### HTML entry
 
 ```html
 <head>
     <link
         rel="stylesheet"
-        href="https://unpkg.com/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     />
     <link
         rel="stylesheet"
-        href="https://unpkg.com/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+        href="https://unpkg.com/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
     />
 </head>
 ```

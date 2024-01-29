@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
-        "target": "ES5",
+        "target": "ES6",
         "module": "ES6",
         "moduleResolution": "Node",
         "esModuleInterop": true,
         "downlevelIteration": true,
-        "experimentalDecorators": true,
+        "useDefineForClassFields": true,
         "jsx": "react-jsx",
-        "lib": ["ES2021", "DOM", "DOM.Iterable"],
+        "lib": ["ES2023", "DOM", "DOM.Iterable"],
         "declaration": true,
         "outDir": "dist/"
     },
