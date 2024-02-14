@@ -6,13 +6,13 @@ settings:
 
 dependencies:
   '@swc/helpers':
-    specifier: ^0.5.3
-    version: 0.5.3
+    specifier: ^0.5.6
+    version: 0.5.6
   edkit:
-    specifier: ^1.0.2
-    version: 1.0.2
+    specifier: ^1.1.0-rc.0
+    version: 1.1.0-rc.0(typescript@5.3.3)
   mobx:
-    specifier: '>=6.12'
+    specifier: '>=6.11'
     version: 6.12.0
   mobx-react:
     specifier: '>=9.1'
@@ -24,7 +24,7 @@ dependencies:
 devDependencies:
   '@parcel/config-default':
     specifier: ~2.11.0
-    version: 2.11.0(@parcel/core@2.11.0)(@swc/helpers@0.5.3)(typescript@5.3.3)
+    version: 2.11.0(@parcel/core@2.11.0)(@swc/helpers@0.5.6)(typescript@5.3.3)
   '@parcel/packager-ts':
     specifier: ~2.11.0
     version: 2.11.0
@@ -35,14 +35,14 @@ devDependencies:
     specifier: ~2.11.0
     version: 2.11.0(typescript@5.3.3)
   '@types/react':
-    specifier: ^18.2.48
-    version: 18.2.48
+    specifier: ^18.2.55
+    version: 18.2.55
   '@types/react-dom':
-    specifier: ^18.2.18
-    version: 18.2.18
+    specifier: ^18.2.19
+    version: 18.2.19
   parcel:
     specifier: ~2.11.0
-    version: 2.11.0(@swc/helpers@0.5.3)(typescript@5.3.3)
+    version: 2.11.0(@swc/helpers@0.5.6)(typescript@5.3.3)
   process:
     specifier: ^0.11.10
     version: 0.11.10
@@ -238,7 +238,7 @@ packages:
       - '@parcel/core'
     dev: true
 
-  /@parcel/config-default@2.11.0(@parcel/core@2.11.0)(@swc/helpers@0.5.3)(typescript@5.3.3):
+  /@parcel/config-default@2.11.0(@parcel/core@2.11.0)(@swc/helpers@0.5.6)(typescript@5.3.3):
     resolution: {integrity: sha512-1e2+qcZkm5/0f4eI20p/DemcYiSxq9d/eyjpTXA7PulJaHbL1wonwUAuy3mvnAvDnLOJmAk/obDVgX1ZfxMGtg==}
     peerDependencies:
       '@parcel/core': ^2.11.0
@@ -251,7 +251,7 @@ packages:
       '@parcel/optimizer-htmlnano': 2.11.0(typescript@5.3.3)
       '@parcel/optimizer-image': 2.11.0(@parcel/core@2.11.0)
       '@parcel/optimizer-svgo': 2.11.0
-      '@parcel/optimizer-swc': 2.11.0(@swc/helpers@0.5.3)
+      '@parcel/optimizer-swc': 2.11.0(@swc/helpers@0.5.6)
       '@parcel/packager-css': 2.11.0
       '@parcel/packager-html': 2.11.0
       '@parcel/packager-js': 2.11.0
@@ -455,7 +455,7 @@ packages:
       - '@parcel/core'
     dev: true
 
-  /@parcel/optimizer-swc@2.11.0(@swc/helpers@0.5.3):
+  /@parcel/optimizer-swc@2.11.0(@swc/helpers@0.5.6):
     resolution: {integrity: sha512-ftf42F3JyZxJb6nnLlgNGyNQ273YOla4dFGH/tWC8iTwObHUpWe7cMbCGcrSJBvAlsLkZfLpFNAXFxUgxdKyHQ==}
     engines: {node: '>= 12.0.0', parcel: ^2.11.0}
     dependencies:
@@ -463,7 +463,7 @@ packages:
       '@parcel/plugin': 2.11.0
       '@parcel/source-map': 2.1.1
       '@parcel/utils': 2.11.0
-      '@swc/core': 1.3.101(@swc/helpers@0.5.3)
+      '@swc/core': 1.3.101(@swc/helpers@0.5.6)
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - '@parcel/core'
@@ -759,7 +759,7 @@ packages:
       '@parcel/source-map': 2.1.1
       '@parcel/utils': 2.11.0
       '@parcel/workers': 2.11.0(@parcel/core@2.11.0)
-      '@swc/helpers': 0.5.3
+      '@swc/helpers': 0.5.6
       browserslist: 4.22.2
       nullthrows: 1.1.1
       regenerator-runtime: 0.13.11
@@ -1148,7 +1148,7 @@ packages:
     dev: true
     optional: true
 
-  /@swc/core@1.3.101(@swc/helpers@0.5.3):
+  /@swc/core@1.3.101(@swc/helpers@0.5.6):
     resolution: {integrity: sha512-w5aQ9qYsd/IYmXADAnkXPGDMTqkQalIi+kfFf/MHRKTpaOL7DHjMXwPp/n8hJ0qNjRvchzmPtOqtPBiER50d8A==}
     engines: {node: '>=10'}
     requiresBuild: true
@@ -1159,7 +1159,7 @@ packages:
         optional: true
     dependencies:
       '@swc/counter': 0.1.2
-      '@swc/helpers': 0.5.3
+      '@swc/helpers': 0.5.6
       '@swc/types': 0.1.5
     optionalDependencies:
       '@swc/core-darwin-arm64': 1.3.101
@@ -1178,8 +1178,8 @@ packages:
     resolution: {integrity: sha512-9F4ys4C74eSTEUNndnER3VJ15oru2NumfQxS8geE+f3eB5xvfxpWyqE5XlVnxb/R14uoXi6SLbBwwiDSkv+XEw==}
     dev: true
 
-  /@swc/helpers@0.5.3:
-    resolution: {integrity: sha512-FaruWX6KdudYloq1AHD/4nU+UsMTdNE8CKyrseXWEcgjDAbvkwJg2QGPAnfIJLIWsjZOSPLOAykK6fuYp4vp4A==}
+  /@swc/helpers@0.5.6:
+    resolution: {integrity: sha512-aYX01Ke9hunpoCexYAgQucEpARGQ5w/cqHFrIR+e9gdKb1QWTsVJuTJ2ozQzIAxLyRQe/m+2RqzkyOOGiMKRQA==}
     dependencies:
       tslib: 2.6.2
 
@@ -1196,14 +1196,14 @@ packages:
     resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
     dev: true
 
-  /@types/react-dom@18.2.18:
-    resolution: {integrity: sha512-TJxDm6OfAX2KJWJdMEVTwWke5Sc/E/RlnPGvGfS0W7+6ocy2xhDVQVh/KvC2Uf7kACs+gDytdusDSdWfWkaNzw==}
+  /@types/react-dom@18.2.19:
+    resolution: {integrity: sha512-aZvQL6uUbIJpjZk4U8JZGbau9KDeAwMfmhyWorxgBkqDIEf6ROjRozcmPIicqsUwPUjbkDfHKgGee1Lq65APcA==}
     dependencies:
-      '@types/react': 18.2.48
+      '@types/react': 18.2.55
     dev: true
 
-  /@types/react@18.2.48:
-    resolution: {integrity: sha512-qboRCl6Ie70DQQG9hhNREz81jqC1cs9EVNcjQ1AU+jH6NFfSAhVVbrrY/+nSF+Bsk4AOwm9Qa61InvMCyV+H3w==}
+  /@types/react@18.2.55:
+    resolution: {integrity: sha512-Y2Tz5P4yz23brwm2d7jNon39qoAtMMmalOQv6+fEFt1mT+FcM3D841wDpoUvFXhaYenuROCy3FZYqdTjM7qVyA==}
     dependencies:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.8
@@ -1258,8 +1258,8 @@ packages:
       fill-range: 7.0.1
     dev: true
 
-  /browser-fs-access@0.34.1:
-    resolution: {integrity: sha512-HPaRf2yimp8kWSuWJXc8Mi78dPbDzfduA+Gyq14H4jlMvd6XNfIRm36Y2yRLaa4x0gwcGuepj4zf14oiTlxrxQ==}
+  /browser-fs-access@0.35.0:
+    resolution: {integrity: sha512-sLoadumpRfsjprP8XzVjpQc0jK8yqHBx0PtUTGYj2fftT+P/t+uyDAQdMgGAPKD011in/O+YYGh7fIs0oG/viw==}
     dev: false
 
   /browserslist@4.22.2:
@@ -1439,12 +1439,15 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /edkit@1.0.2:
-    resolution: {integrity: sha512-Y5q4tbk7Uaq7e37fbmpsBvs6NFd9/1kcp55aZ0+L6P7IUla94+T+dh26kcBMXNKwnDHLSEEce+ubb1tlKYcjmg==}
+  /edkit@1.1.0-rc.0(typescript@5.3.3):
+    resolution: {integrity: sha512-SqY8TnnZi+U2XAXIg8H/E2Skv/LovJsn0Sk3jJ0iBKhwQ2mVolgEwWj4CQ5PfmviAPFaxbQEO6QEE+NwX59JZg==}
     dependencies:
-      '@swc/helpers': 0.5.3
-      browser-fs-access: 0.34.1
+      '@swc/helpers': 0.5.6
+      browser-fs-access: 0.35.0
       regenerator-runtime: 0.14.1
+      web-utility: 4.1.3(typescript@5.3.3)
+    transitivePeerDependencies:
+      - typescript
     dev: false
 
   /electron-to-chromium@1.4.616:
@@ -1867,7 +1870,7 @@ packages:
     resolution: {integrity: sha512-5VyHfHY3cd0iza71JepYG50My+YUbrFtGoUz2ooEydPyPM7Aai/JW098juLr+RG6+rDJuzNNTsEQu2DZa1A41A==}
     dev: true
 
-  /parcel@2.11.0(@swc/helpers@0.5.3)(typescript@5.3.3):
+  /parcel@2.11.0(@swc/helpers@0.5.6)(typescript@5.3.3):
     resolution: {integrity: sha512-H/RI1/DmuOkL8RuG/EpNPvtzrbF+7jA/R56ydEEm+lqFbYktKB4COR7JXdHkZXRgbSJyimrFB8d0r9+SaRnj0Q==}
     engines: {node: '>= 12.0.0'}
     hasBin: true
@@ -1875,7 +1878,7 @@ packages:
       '@parcel/core':
         optional: true
     dependencies:
-      '@parcel/config-default': 2.11.0(@parcel/core@2.11.0)(@swc/helpers@0.5.3)(typescript@5.3.3)
+      '@parcel/config-default': 2.11.0(@parcel/core@2.11.0)(@swc/helpers@0.5.6)(typescript@5.3.3)
       '@parcel/core': 2.11.0
       '@parcel/diagnostic': 2.11.0
       '@parcel/events': 2.11.0
@@ -2145,7 +2148,7 @@ packages:
     peerDependencies:
       typescript: '>=4.1'
     dependencies:
-      '@swc/helpers': 0.5.3
+      '@swc/helpers': 0.5.6
       element-internals-polyfill: 1.3.10
       regenerator-runtime: 0.14.1
       typescript: 5.3.3

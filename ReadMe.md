@@ -22,9 +22,42 @@ https://idea2app.github.io/React-MobX-Bootstrap-ts/#/component
 
 [Example with React](https://github.com/idea2app/Edkit/tree/master/React/source/)
 
-## Tools
+## Features
 
-### Text
+### Editor class decorator
+
+`@edkit` is compatible with Web components, React & other kinds of class components.
+
+#### Web components
+
+```tsx
+import { editor, EditorComponent } from 'edkit';
+
+export interface HTMLEditor extends EditorComponent {}
+
+@editor
+export class HTMLEditor extends HTMLElement implements EditorComponent {
+    // your class members...
+}
+```
+
+#### React
+
+```tsx
+import { Component } from 'react';
+import { editor, EditorComponent } from 'edkit';
+
+export interface HTMLEditor extends EditorComponent {}
+
+@editor
+export class HTMLEditor extends Component implements EditorComponent {
+    // your class members...
+}
+```
+
+### Tool base classes
+
+#### Text
 
 1. [Bold](https://idea2app.github.io/Edkit/classes/tools_text.boldtool.html)
 2. [Italic](https://idea2app.github.io/Edkit/classes/tools_text.italictool.html)
@@ -39,12 +72,12 @@ https://idea2app.github.io/React-MobX-Bootstrap-ts/#/component
 11. [Superscript](https://idea2app.github.io/Edkit/classes/tools_text.superscripttool.html)
 12. [Link](https://idea2app.github.io/Edkit/classes/tools_text.linktool.html)
 
-### Color
+#### Color
 
 1. [Fore Color](https://idea2app.github.io/Edkit/classes/tools_color.forecolortool.html)
 2. [Back Color](https://idea2app.github.io/Edkit/classes/tools_color.backcolortool.html)
 
-### Layout
+#### Layout
 
 1. [Align Left](https://idea2app.github.io/Edkit/classes/tools_layout.alignlefttool.html)
 2. [Align Center](https://idea2app.github.io/Edkit/classes/tools_layout.aligncentertool.html)
@@ -54,14 +87,14 @@ https://idea2app.github.io/React-MobX-Bootstrap-ts/#/component
 6. [Unordered list](https://idea2app.github.io/Edkit/classes/tools_layout.unorderedlisttool.html)
 7. [Horizontal rule](https://idea2app.github.io/Edkit/classes/tools_layout.horizontalruletool.html)
 
-### Media
+#### Media
 
 1. [Embed Web page](https://idea2app.github.io/Edkit/classes/tools_media.iframetool.html)
 2. [Image](https://idea2app.github.io/Edkit/classes/tools_media.imagetool.html)
 3. [Audio](https://idea2app.github.io/Edkit/classes/tools_media.audiotool.html)
 4. [Video](https://idea2app.github.io/Edkit/classes/tools_media.videotool.html)
 
-### Control
+#### Control
 
 1. [Undo](https://idea2app.github.io/Edkit/classes/tools_control.undotool.html)
 2. [Redo](https://idea2app.github.io/Edkit/classes/tools_control.redotool.html)

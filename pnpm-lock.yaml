@@ -6,14 +6,17 @@ settings:
 
 dependencies:
   '@swc/helpers':
-    specifier: ^0.5.3
-    version: 0.5.3
+    specifier: ^0.5.6
+    version: 0.5.6
   browser-fs-access:
     specifier: ^0.35.0
     version: 0.35.0
   regenerator-runtime:
     specifier: ^0.14.1
     version: 0.14.1
+  web-utility:
+    specifier: ^4.1.3
+    version: 4.1.3(typescript@5.3.3)
 
 devDependencies:
   '@parcel/packager-ts':
@@ -23,26 +26,26 @@ devDependencies:
     specifier: ~2.11.0
     version: 2.11.0(typescript@5.3.3)
   husky:
-    specifier: ^9.0.7
-    version: 9.0.7
+    specifier: ^9.0.11
+    version: 9.0.11
   lint-staged:
-    specifier: ^15.2.0
-    version: 15.2.0
+    specifier: ^15.2.2
+    version: 15.2.2
   open-cli:
     specifier: ^8.0.0
     version: 8.0.0
   parcel:
     specifier: ~2.11.0
-    version: 2.11.0(@swc/helpers@0.5.3)(typescript@5.3.3)
+    version: 2.11.0(@swc/helpers@0.5.6)(typescript@5.3.3)
   prettier:
-    specifier: ^3.2.4
-    version: 3.2.4
+    specifier: ^3.2.5
+    version: 3.2.5
   typedoc:
-    specifier: ^0.25.7
-    version: 0.25.7(typescript@5.3.3)
+    specifier: ^0.25.8
+    version: 0.25.8(typescript@5.3.3)
   typedoc-plugin-mdn-links:
-    specifier: ^3.1.14
-    version: 3.1.14(typedoc@0.25.7)
+    specifier: ^3.1.16
+    version: 3.1.16(typedoc@0.25.8)
   typescript:
     specifier: ~5.3.3
     version: 5.3.3
@@ -225,7 +228,7 @@ packages:
       '@parcel/plugin': 2.11.0
     dev: true
 
-  /@parcel/config-default@2.11.0(@parcel/core@2.11.0)(@swc/helpers@0.5.3)(typescript@5.3.3):
+  /@parcel/config-default@2.11.0(@parcel/core@2.11.0)(@swc/helpers@0.5.6)(typescript@5.3.3):
     resolution: {integrity: sha512-1e2+qcZkm5/0f4eI20p/DemcYiSxq9d/eyjpTXA7PulJaHbL1wonwUAuy3mvnAvDnLOJmAk/obDVgX1ZfxMGtg==}
     peerDependencies:
       '@parcel/core': ^2.11.0
@@ -238,7 +241,7 @@ packages:
       '@parcel/optimizer-htmlnano': 2.11.0(typescript@5.3.3)
       '@parcel/optimizer-image': 2.11.0(@parcel/core@2.11.0)
       '@parcel/optimizer-svgo': 2.11.0
-      '@parcel/optimizer-swc': 2.11.0(@swc/helpers@0.5.3)
+      '@parcel/optimizer-swc': 2.11.0(@swc/helpers@0.5.6)
       '@parcel/packager-css': 2.11.0
       '@parcel/packager-html': 2.11.0
       '@parcel/packager-js': 2.11.0
@@ -435,7 +438,7 @@ packages:
       svgo: 2.8.0
     dev: true
 
-  /@parcel/optimizer-swc@2.11.0(@swc/helpers@0.5.3):
+  /@parcel/optimizer-swc@2.11.0(@swc/helpers@0.5.6):
     resolution: {integrity: sha512-ftf42F3JyZxJb6nnLlgNGyNQ273YOla4dFGH/tWC8iTwObHUpWe7cMbCGcrSJBvAlsLkZfLpFNAXFxUgxdKyHQ==}
     engines: {node: '>= 12.0.0', parcel: ^2.11.0}
     dependencies:
@@ -443,7 +446,7 @@ packages:
       '@parcel/plugin': 2.11.0
       '@parcel/source-map': 2.1.1
       '@parcel/utils': 2.11.0
-      '@swc/core': 1.3.101(@swc/helpers@0.5.3)
+      '@swc/core': 1.3.101(@swc/helpers@0.5.6)
       nullthrows: 1.1.1
     transitivePeerDependencies:
       - '@swc/helpers'
@@ -710,7 +713,7 @@ packages:
       '@parcel/source-map': 2.1.1
       '@parcel/utils': 2.11.0
       '@parcel/workers': 2.11.0(@parcel/core@2.11.0)
-      '@swc/helpers': 0.5.3
+      '@swc/helpers': 0.5.6
       browserslist: 4.22.2
       nullthrows: 1.1.1
       regenerator-runtime: 0.13.11
@@ -1073,7 +1076,7 @@ packages:
     dev: true
     optional: true
 
-  /@swc/core@1.3.101(@swc/helpers@0.5.3):
+  /@swc/core@1.3.101(@swc/helpers@0.5.6):
     resolution: {integrity: sha512-w5aQ9qYsd/IYmXADAnkXPGDMTqkQalIi+kfFf/MHRKTpaOL7DHjMXwPp/n8hJ0qNjRvchzmPtOqtPBiER50d8A==}
     engines: {node: '>=10'}
     requiresBuild: true
@@ -1084,7 +1087,7 @@ packages:
         optional: true
     dependencies:
       '@swc/counter': 0.1.2
-      '@swc/helpers': 0.5.3
+      '@swc/helpers': 0.5.6
       '@swc/types': 0.1.5
     optionalDependencies:
       '@swc/core-darwin-arm64': 1.3.101
@@ -1103,8 +1106,8 @@ packages:
     resolution: {integrity: sha512-9F4ys4C74eSTEUNndnER3VJ15oru2NumfQxS8geE+f3eB5xvfxpWyqE5XlVnxb/R14uoXi6SLbBwwiDSkv+XEw==}
     dev: true
 
-  /@swc/helpers@0.5.3:
-    resolution: {integrity: sha512-FaruWX6KdudYloq1AHD/4nU+UsMTdNE8CKyrseXWEcgjDAbvkwJg2QGPAnfIJLIWsjZOSPLOAykK6fuYp4vp4A==}
+  /@swc/helpers@0.5.6:
+    resolution: {integrity: sha512-aYX01Ke9hunpoCexYAgQucEpARGQ5w/cqHFrIR+e9gdKb1QWTsVJuTJ2ozQzIAxLyRQe/m+2RqzkyOOGiMKRQA==}
     dependencies:
       tslib: 2.6.2
 
@@ -1459,6 +1462,10 @@ packages:
     resolution: {integrity: sha512-1n7zWYh8eS0L9Uy+GskE0lkBUNK83cXTVJI0pU3mGprFsbfSdAc15VTFbo+A+Bq4pwstmL30AVcEU3Fo463lNg==}
     dev: true
 
+  /element-internals-polyfill@1.3.10:
+    resolution: {integrity: sha512-hflkht5sNZ2LF2sP9+OHfqGDcr8R9NIiDCuDfXep8uptqqt0OjZDaWJ/7ip+OdoIZBFJL+fFJ3+aLku1cTIEGA==}
+    dev: false
+
   /emoji-regex@10.3.0:
     resolution: {integrity: sha512-QpLs9D9v9kArv4lfDEgg1X/gN5XLnf/A6l9cs8SPZLRZR3ZkY9+kwIQTxm+fsSej5UMYGE8fdoaZVIBlqG0XTw==}
     dev: true
@@ -1615,8 +1622,8 @@ packages:
     engines: {node: '>=16.17.0'}
     dev: true
 
-  /husky@9.0.7:
-    resolution: {integrity: sha512-vWdusw+y12DUEeoZqW1kplOFqk3tedGV8qlga8/SF6a3lOiWLqGZZQvfWvY0fQYdfiRi/u1DFNpudTSV9l1aCg==}
+  /husky@9.0.11:
+    resolution: {integrity: sha512-AB6lFlbwwyIqMdHYhwPe+kjOC3Oc5P3nThEoW/AaO2BX3vJDjWPFxYLxokUZOo6RNX20He3AaT8sESs9NJcmEw==}
     engines: {node: '>=18'}
     hasBin: true
     dev: true
@@ -1841,8 +1848,8 @@ packages:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: true
 
-  /lint-staged@15.2.0:
-    resolution: {integrity: sha512-TFZzUEV00f+2YLaVPWBWGAMq7So6yQx+GG8YRMDeOEIf95Zn5RyiLMsEiX4KTNl9vq/w+NqRJkLA1kPIo15ufQ==}
+  /lint-staged@15.2.2:
+    resolution: {integrity: sha512-TiTt93OPh1OZOsb5B7k96A/ATl2AjIZo+vnzFZ6oHK5FuTk63ByDtxGQpHm+kFETjEWqgkF95M8FRXKR/LEBcw==}
     engines: {node: '>=18.12.0'}
     hasBin: true
     dependencies:
@@ -1851,7 +1858,7 @@ packages:
       debug: 4.3.4
       execa: 8.0.1
       lilconfig: 3.0.0
-      listr2: 8.0.0
+      listr2: 8.0.1
       micromatch: 4.0.5
       pidtree: 0.6.0
       string-argv: 0.3.2
@@ -1860,8 +1867,8 @@ packages:
       - supports-color
     dev: true
 
-  /listr2@8.0.0:
-    resolution: {integrity: sha512-u8cusxAcyqAiQ2RhYvV7kRKNLgUvtObIbhOX2NCXqvp1UU32xIg5CT22ykS2TPKJXZWJwtK3IKLiqAGlGNE+Zg==}
+  /listr2@8.0.1:
+    resolution: {integrity: sha512-ovJXBXkKGfq+CwmKTjluEqFi3p4h8xvkxGQQAQan22YCgef4KZ1mKGjzfGh6PL6AW5Csw0QiQPNuQyH+6Xk3hA==}
     engines: {node: '>=18.0.0'}
     dependencies:
       cli-truncate: 4.0.0
@@ -2066,7 +2073,7 @@ packages:
     resolution: {integrity: sha512-5VyHfHY3cd0iza71JepYG50My+YUbrFtGoUz2ooEydPyPM7Aai/JW098juLr+RG6+rDJuzNNTsEQu2DZa1A41A==}
     dev: true
 
-  /parcel@2.11.0(@swc/helpers@0.5.3)(typescript@5.3.3):
+  /parcel@2.11.0(@swc/helpers@0.5.6)(typescript@5.3.3):
     resolution: {integrity: sha512-H/RI1/DmuOkL8RuG/EpNPvtzrbF+7jA/R56ydEEm+lqFbYktKB4COR7JXdHkZXRgbSJyimrFB8d0r9+SaRnj0Q==}
     engines: {node: '>= 12.0.0'}
     hasBin: true
@@ -2074,7 +2081,7 @@ packages:
       '@parcel/core':
         optional: true
     dependencies:
-      '@parcel/config-default': 2.11.0(@parcel/core@2.11.0)(@swc/helpers@0.5.3)(typescript@5.3.3)
+      '@parcel/config-default': 2.11.0(@parcel/core@2.11.0)(@swc/helpers@0.5.6)(typescript@5.3.3)
       '@parcel/core': 2.11.0
       '@parcel/diagnostic': 2.11.0
       '@parcel/events': 2.11.0
@@ -2185,8 +2192,8 @@ packages:
       posthtml-render: 3.0.0
     dev: true
 
-  /prettier@3.2.4:
-    resolution: {integrity: sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ==}
+  /prettier@3.2.5:
+    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -2465,16 +2472,16 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /typedoc-plugin-mdn-links@3.1.14(typedoc@0.25.7):
-    resolution: {integrity: sha512-zPnzIHvMChiuS4BvI4mbs89HwS6HSPE+q7rPRliJCeIkQYqW7YaTXuBwbUQFPg++02KNUY0IMp0MFvouoi1Qgw==}
+  /typedoc-plugin-mdn-links@3.1.16(typedoc@0.25.8):
+    resolution: {integrity: sha512-Jdnw3tI3KOOMMahUNiCwKXJcH+Ov9y3syRQ8HP1ce8nT2O9Bsg9aqqa0LWye+CdCiSpWJ/USzOK3MFNxRYzL4A==}
     peerDependencies:
       typedoc: '>= 0.23.14 || 0.24.x || 0.25.x'
     dependencies:
-      typedoc: 0.25.7(typescript@5.3.3)
+      typedoc: 0.25.8(typescript@5.3.3)
     dev: true
 
-  /typedoc@0.25.7(typescript@5.3.3):
-    resolution: {integrity: sha512-m6A6JjQRg39p2ZVRIN3NKXgrN8vzlHhOS+r9ymUYtcUP/TIQPvWSq7YgE5ZjASfv5Vd5BW5xrir6Gm2XNNcOow==}
+  /typedoc@0.25.8(typescript@5.3.3):
+    resolution: {integrity: sha512-mh8oLW66nwmeB9uTa0Bdcjfis+48bAjSH3uqdzSuSawfduROQLlXw//WSNZLYDdhmMVB7YcYZicq6e8T0d271A==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
@@ -2491,7 +2498,6 @@ packages:
     resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
   /unique-string@3.0.0:
     resolution: {integrity: sha512-VGXBUVwxKMBUznyffQweQABPRRW1vHZAbadFZud4pLFAqRGvv/96vafgjWFqzourzr8YonlQiPgH0YCJfawoGQ==}
@@ -2531,6 +2537,17 @@ packages:
   /weak-lru-cache@1.2.2:
     resolution: {integrity: sha512-DEAoo25RfSYMuTGc9vPJzZcZullwIqRDSI9LOy+fkCJPi6hykCnfKaXTuPBDuXAUcqHXyOgFtHNp/kB2FjYHbw==}
     dev: true
+
+  /web-utility@4.1.3(typescript@5.3.3):
+    resolution: {integrity: sha512-NLk7jXW/3WKMXxr/THwRilzjjsGmK78nSZJShzcDSwmAmyzKLkG28kxSVX8hw9Eynp+dOKAjeK/CB/kLZec6rQ==}
+    peerDependencies:
+      typescript: '>=4.1'
+    dependencies:
+      '@swc/helpers': 0.5.6
+      element-internals-polyfill: 1.3.10
+      regenerator-runtime: 0.14.1
+      typescript: 5.3.3
+    dev: false
 
   /which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
