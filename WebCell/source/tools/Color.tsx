@@ -1,4 +1,4 @@
-import { FC, RefObject } from 'react';
+import { FC, WebCellProps } from 'web-cell';
 import {
     ColorName,
     ColorTool,
@@ -7,9 +7,10 @@ import {
 } from 'edkit';
 
 export interface ColorSelectorProps
-    extends Partial<Record<'className' | 'title' | 'value', string>> {
+    extends Omit<WebCellProps<HTMLSpanElement>, 'onChange'> {
     icon: string;
     type: ColorName;
+    value?: string;
     onChange?: (color: string) => any;
 }
 
@@ -29,7 +30,9 @@ export const ColorSelector: FC<ColorSelectorProps> = ({
             className="position-absolute w-100 h-100 start-0 top-0 z-n1 rounded-3"
             type="color"
             value={value}
-            onChange={({ target: { value } }) => onChange?.(value)}
+            onChange={({ target }) =>
+                onChange?.((target as HTMLInputElement).value)
+            }
         />
         <button
             className="btn"
@@ -41,7 +44,7 @@ export const ColorSelector: FC<ColorSelectorProps> = ({
             onClick={event => {
                 event.preventDefault();
                 (
-                    event.currentTarget
+                    (event.currentTarget as HTMLButtonElement)
                         .previousElementSibling as HTMLInputElement
                 ).click();
             }}
@@ -51,10 +54,7 @@ export const ColorSelector: FC<ColorSelectorProps> = ({
     </span>
 );
 
-export function renderColorTool(
-    this: ColorTool,
-    editor: RefObject<HTMLElement>
-) {
+export function renderColorTool(this: ColorTool, editor: HTMLElement) {
     const { icon, name, colorName } = this;
 
     return (
@@ -65,9 +65,7 @@ export function renderColorTool(
             icon={icon}
             type={colorName}
             value={this.getColor()}
-            onChange={color =>
-                editor.current && this.execute(editor.current, color)
-            }
+            onChange={color => this.execute(editor, color)}
         />
     );
 }

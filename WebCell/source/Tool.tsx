@@ -1,7 +1,6 @@
-import { RefObject } from 'react';
 import { Tool } from 'edkit';
 
-export function renderTool(this: Tool, editor: RefObject<HTMLElement>) {
+export function renderTool(this: Tool, editor: HTMLElement) {
     const { title, active, icon, usable } = this;
 
     const Class = `btn btn-${
@@ -19,7 +18,7 @@ export function renderTool(this: Tool, editor: RefObject<HTMLElement>) {
             onClick={event => {
                 event.preventDefault();
 
-                if (editor.current) this.execute(editor.current);
+                this.execute(editor);
             }}
         >
             <i className={`bi-${icon}`} />

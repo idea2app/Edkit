@@ -8,7 +8,7 @@ Lightweight **Rich Text Editor** based on [Edkit][1], [React][2] & [Bootstrap][3
 
 ## Demo
 
-https://idea2app.github.io/React-MobX-Bootstrap-ts/#/component
+https://idea2app.github.io/Edkit/React/
 
 ## Tools
 
