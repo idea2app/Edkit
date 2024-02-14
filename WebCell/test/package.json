@@ -1,0 +1,5 @@
+{
+    "name": "@edkit/boot-cell-editor-demo",
+    "private": true,
+    "source": "index.html"
+}

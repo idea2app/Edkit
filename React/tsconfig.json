@@ -8,6 +8,7 @@
         "useDefineForClassFields": true,
         "jsx": "react-jsx",
         "lib": ["ES2023", "DOM", "DOM.Iterable"],
+        "skipLibCheck": true,
         "declaration": true,
         "outDir": "dist/"
     },

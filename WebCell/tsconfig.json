@@ -9,6 +9,7 @@
         "jsx": "react-jsx",
         "jsxImportSource": "dom-renderer",
         "lib": ["ES2023", "DOM", "DOM.Iterable"],
+        "skipLibCheck": true,
         "declaration": true,
         "outDir": "dist/"
     },

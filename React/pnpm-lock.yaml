@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.5.6
     version: 0.5.6
   edkit:
-    specifier: ^1.1.0-rc.0
-    version: 1.1.0-rc.0(typescript@5.3.3)
+    specifier: ^1.1.0
+    version: 1.1.0(typescript@5.3.3)
   mobx:
     specifier: '>=6.11'
     version: 6.12.0
@@ -1439,8 +1439,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /edkit@1.1.0-rc.0(typescript@5.3.3):
-    resolution: {integrity: sha512-SqY8TnnZi+U2XAXIg8H/E2Skv/LovJsn0Sk3jJ0iBKhwQ2mVolgEwWj4CQ5PfmviAPFaxbQEO6QEE+NwX59JZg==}
+  /edkit@1.1.0(typescript@5.3.3):
+    resolution: {integrity: sha512-DkLZ3DLNMDVO903snwblJJ8Qz13eDONTPEuhiOWe5wbD57rQKMa4h4pb73NTL6TyCrIuL2SdFKtyRN8piPsngQ==}
     dependencies:
       '@swc/helpers': 0.5.6
       browser-fs-access: 0.35.0

@@ -8,6 +8,12 @@ import {
 
 import { AudioTool, ImageTool, VideoTool } from './tools/Media';
 
+export type DataTransferEvent = Pick<
+    Event,
+    'type' | 'currentTarget' | 'preventDefault'
+> &
+    (Pick<ClipboardEvent, 'clipboardData'> | Pick<DragEvent, 'dataTransfer'>);
+
 export interface EditorComponent {
     imageTool: ImageTool | undefined;
     audioTool: AudioTool | undefined;
@@ -20,14 +26,8 @@ export interface EditorComponent {
 
     clearHTML: (markup: string) => Promise<DocumentFragment>;
 
-    handlePasteDrop: (event: ClipboardEvent | DragEvent) => Promise<void>;
+    handlePasteDrop: (event: DataTransferEvent) => Promise<void>;
 }
-
-export type DataTransferEvent = Pick<
-    Event,
-    'type' | 'currentTarget' | 'preventDefault'
-> &
-    (Pick<ClipboardEvent, 'clipboardData'> | Pick<DragEvent, 'dataTransfer'>);
 
 export const editor = <T extends Constructor<any>>(
     Class: T,

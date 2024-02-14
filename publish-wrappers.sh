@@ -5,4 +5,5 @@ for name in $*; do
     pnpm i --frozen-lockfile
     npm publish
     mv test/dist ../docs/$name
+    cd ..
 done
