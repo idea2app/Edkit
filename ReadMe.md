@@ -9,14 +9,14 @@ Lightweight **Rich Text Editor** toolkit based on [TypeScript][1]
 
 ## Demo
 
-https://idea2app.github.io/React-MobX-Bootstrap-ts/#/component
+https://idea2app.github.io/Edkit/React/
 
 ## Usage
 
 ### Application developers
 
 1. [React + Bootstrap](https://github.com/idea2app/Edkit/tree/master/React/)
-2. WebCell + Bootstrap
+2. [WebCell + Bootstrap](https://github.com/idea2app/Edkit/tree/master/WebCell/)
 
 ### Library developers
 
@@ -26,12 +26,12 @@ https://idea2app.github.io/React-MobX-Bootstrap-ts/#/component
 
 ### Editor class decorator
 
-`@edkit` is compatible with Web components, React & other kinds of class components.
+`@editor` is compatible with [Web components][5], [React][6] & other kinds of **class components**.
 
 #### Web components
 
 ```tsx
-import { editor, EditorComponent } from 'edkit';
+import { EditorComponent, editor } from 'edkit';
 
 export interface HTMLEditor extends EditorComponent {}
 
@@ -105,3 +105,5 @@ export class HTMLEditor extends Component implements EditorComponent {
 [2]: https://libraries.io/npm/edkit
 [3]: https://github.com/idea2app/Edkit/actions/workflows/main.yml
 [4]: https://nodei.co/npm/edkit/
+[5]: https://www.webcomponents.org/
+[6]: https://react.dev/

@@ -54,7 +54,7 @@
     },
     "scripts": {
         "start": "cd test/  &&  parcel index.html --open",
-        "build": "rm -rf dist/  &&  parcel build",
+        "build": "rm -rf dist/  &&  parcel build --public-url .",
         "prepublishOnly": "npm run build"
     }
 }

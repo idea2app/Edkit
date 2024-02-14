@@ -67,8 +67,7 @@ export class HTMLEditor
         )[0] as HTMLElement;
 
         this.box.oninput = this.updateValue;
-        this.box.onpaste = this.handlePasteDrop;
-        this.box.ondrop = this.handlePasteDrop;
+        this.box.onpaste = this.box.ondrop = this.handlePasteDrop;
 
         this.append(this.box);
 
@@ -111,6 +110,7 @@ export class HTMLEditor
                 <header>
                     {this.toolList.map(tool => tool.render(this.box))}
                 </header>
+
                 <slot />
             </>
         );

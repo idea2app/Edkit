@@ -25,16 +25,14 @@ jobs:
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+            - name: Install & Publish wrapper packages
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: sh publish-wrappers.sh WebCell React
+
             - name: Update document
               uses: peaceiris/actions-gh-pages@v3
               with:
                   publish_dir: ./docs
                   personal_token: ${{ secrets.GITHUB_TOKEN }}
                   force_orphan: true
-            - name: Install & Publish React package
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: |
-                  cd React/
-                  pnpm i --frozen-lockfile
-                  npm publish

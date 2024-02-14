@@ -8,6 +8,8 @@ Lightweight **Rich Text Editor** based on [Edkit][1], [WebCell][2] & [Bootstrap]
 
 ## Demo
 
+https://idea2app.github.io/Edkit/WebCell/
+
 ## Tools
 
 https://github.com/idea2app/Edkit#tools

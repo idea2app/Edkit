@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react';
+import { RefObject } from 'react';
 import { Tool } from 'edkit';
 
 export function renderTool(this: Tool, editor: RefObject<HTMLElement>) {

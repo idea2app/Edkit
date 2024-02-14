@@ -1,4 +1,4 @@
-import { FC, PropsWithoutRef, RefObject } from 'react';
+import { FC, RefObject } from 'react';
 import {
     ColorName,
     ColorTool,
@@ -6,14 +6,12 @@ import {
     BackColorTool as BCT
 } from 'edkit';
 
-export type ColorSelectorProps = PropsWithoutRef<{
-    className?: string;
-    title?: string;
+export interface ColorSelectorProps
+    extends Partial<Record<'className' | 'title' | 'value', string>> {
     icon: string;
     type: ColorName;
-    value?: string;
-    onChange?(color: string): any;
-}>;
+    onChange?: (color: string) => any;
+}
 
 export const ColorSelector: FC<ColorSelectorProps> = ({
     className = '',
@@ -28,8 +26,7 @@ export const ColorSelector: FC<ColorSelectorProps> = ({
         title={title}
     >
         <input
-            className="position-absolute w-100 h-100 rounded-3"
-            style={{ left: 0, top: 0, zIndex: -1 }}
+            className="position-absolute w-100 h-100 start-0 top-0 z-n1 rounded-3"
             type="color"
             value={value}
             onChange={({ target: { value } }) => onChange?.(value)}
