@@ -1,7 +1,7 @@
-import { EditorComponent, ImageTool, Tool } from 'edkit';
+import { EditorComponent, ImageTool, Tool, editor } from 'edkit';
 import { computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
-import { InputHTMLAttributes, PureComponent, createRef } from 'react';
+import { InputHTMLAttributes, Component, createRef } from 'react';
 import { Constructor } from 'web-utility';
 
 import { AudioTool, DefaultTools, VideoTool } from './tools';
@@ -18,10 +18,8 @@ export interface EditorProps
 export interface Editor extends EditorComponent {}
 
 @observer
-export class Editor
-    extends PureComponent<EditorProps>
-    implements EditorComponent
-{
+@editor
+export class Editor extends Component<EditorProps> implements EditorComponent {
     static displayName = 'Editor';
 
     box = createRef<HTMLDivElement>();

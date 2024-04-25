@@ -1,4 +1,4 @@
-import { EditorComponent, ImageTool, Tool } from 'edkit';
+import { EditorComponent, ImageTool, Tool, editor } from 'edkit';
 import { computed, observable } from 'mobx';
 import {
     WebCellProps,
@@ -15,7 +15,7 @@ import { AudioTool, DefaultTools, VideoTool } from './tools';
 export interface EditorProps
     extends Pick<WebCellProps<HTMLInputElement>, 'name' | 'defaultValue'> {
     tools?: Constructor<Tool>[];
-    onChange?: (value: string) => any;
+    onChange?: (event: CustomEvent<string>) => any;
 }
 
 export interface HTMLEditor extends WebField<EditorProps>, EditorComponent {}
@@ -26,6 +26,7 @@ export interface HTMLEditor extends WebField<EditorProps>, EditorComponent {}
 })
 @formField
 @observer
+@editor
 export class HTMLEditor
     extends HTMLElement
     implements WebField<EditorProps>, EditorComponent
@@ -74,7 +75,7 @@ export class HTMLEditor
         document.addEventListener('selectionchange', this.updateTools);
     }
 
-    componentWillUnmount() {
+    disconnectedCallback() {
         document.removeEventListener('selectionchange', this.updateTools);
     }
 
@@ -101,7 +102,7 @@ export class HTMLEditor
             <>
                 <link
                     rel="stylesheet"
-                    href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+                    href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"
                 />
                 <link
                     rel="stylesheet"

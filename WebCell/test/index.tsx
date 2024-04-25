@@ -8,7 +8,7 @@ configure({ enforceActions: 'never' });
 new DOMRenderer().render(
     // @ts-ignore
     <form className="container">
-        <legend>BootCell editor</legend>
+        <legend className="float-none">BootCell editor</legend>
 
         <HTMLEditor
             tools={OriginalTools}
