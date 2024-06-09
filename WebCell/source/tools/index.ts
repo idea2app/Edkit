@@ -24,12 +24,14 @@ import {
 } from './Layout';
 import { IFrameTool, ImageTool, AudioTool, VideoTool } from './Media';
 import { UndoTool, RedoTool, ResetTool, ClearTool } from './Control';
+import { CopyMarkdownTool } from './Extra';
 
 export * from './Text';
 export * from './Color';
 export * from './Layout';
 export * from './Media';
 export * from './Control';
+export * from './Extra';
 
 export const TextTools = [
     BoldTool,
@@ -57,6 +59,7 @@ export const LayoutTools = [
 ];
 export const MediaTools = [IFrameTool, ImageTool, AudioTool, VideoTool];
 export const ControlTools = [UndoTool, RedoTool, ResetTool, ClearTool];
+export const ExtraTools = [CopyMarkdownTool];
 
 export const OriginalTools = [
     ...TextTools,
