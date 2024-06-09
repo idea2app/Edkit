@@ -1,6 +1,8 @@
+WebCell/
 React/
 test/
 docs/
+*.sh
 .parcel*
 .husky/
 .vscode/

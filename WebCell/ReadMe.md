@@ -44,7 +44,7 @@ npm install web-cell boot-cell-editor
 <head>
     <link
         rel="stylesheet"
-        href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     />
     <link
         rel="stylesheet"
@@ -56,7 +56,7 @@ npm install web-cell boot-cell-editor
 ### Initialization
 
 ```javascript
-import { component } from
+import { component } from 'web-cell';
 import { Editor } from 'boot-cell-editor';
 
 @component({ tagName: 'post-edit' })
@@ -73,7 +73,7 @@ export class PostEdit extends HTMLElement {
 }
 ```
 
-[1]: https://github.com/idea2app/Edkit/
+[1]: https://github.com/idea2app/Edkit
 [2]: https://web-cell.dev/
 [3]: https://getbootstrap.com/
 [4]: https://libraries.io/npm/boot-cell-editor

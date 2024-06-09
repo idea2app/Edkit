@@ -5,6 +5,7 @@ import {
     parseDOM,
     walkDOM
 } from 'web-utility';
+import { marked } from 'marked';
 
 import { AudioTool, ImageTool, VideoTool } from './tools/Media';
 
@@ -83,6 +84,29 @@ export const editor = <T extends Constructor<any>>(
             return fragment;
         }
 
+        async transferMedia(item: DataTransferItem) {
+            const { imageTool, audioTool, videoTool } = this;
+
+            if (item.type === 'text/html') {
+                const raw = await new Promise<string>(resolve =>
+                    item.getAsString(resolve)
+                );
+                insertToCursor(await this.clearHTML(raw));
+            } else if (item.type.startsWith('image/') && imageTool) {
+                const URI = await this.uploadFile(imageTool, item.getAsFile());
+
+                if (URI) insertToCursor(parseDOM(`<img src="${URI}" />`)[0]);
+            } else if (item.type.startsWith('audio/') && audioTool) {
+                const URI = await this.uploadFile(audioTool, item.getAsFile());
+
+                if (URI) insertToCursor(parseDOM(`<audio src="${URI}" />`)[0]);
+            } else if (item.type.startsWith('video/') && videoTool) {
+                const URI = await this.uploadFile(videoTool, item.getAsFile());
+
+                if (URI) insertToCursor(parseDOM(`<video src="${URI}" />`)[0]);
+            }
+        }
+
         handlePasteDrop = async (event: DataTransferEvent) => {
             event.preventDefault();
 
@@ -91,38 +115,19 @@ export const editor = <T extends Constructor<any>>(
                 event.type === 'paste'
                     ? [...(event as ClipboardEvent).clipboardData.items]
                     : [...(event as DragEvent).dataTransfer.items];
-            const { imageTool, audioTool, videoTool } = this;
-
             root.focus();
 
-            for (const item of list)
-                if (item.type === 'text/html') {
-                    const raw = await new Promise<string>(resolve =>
-                        item.getAsString(resolve)
-                    );
-                    insertToCursor(await this.clearHTML(raw));
-                } else if (item.type.startsWith('image/') && imageTool) {
-                    const URI = await this.uploadFile(
-                        imageTool,
-                        item.getAsFile()
-                    );
-                    if (URI)
-                        insertToCursor(parseDOM(`<img src="${URI}" />`)[0]);
-                } else if (item.type.startsWith('audio/') && audioTool) {
-                    const URI = await this.uploadFile(
-                        audioTool,
-                        item.getAsFile()
-                    );
-                    if (URI)
-                        insertToCursor(parseDOM(`<audio src="${URI}" />`)[0]);
-                } else if (item.type.startsWith('video/') && videoTool) {
-                    const URI = await this.uploadFile(
-                        videoTool,
-                        item.getAsFile()
-                    );
-                    if (URI)
-                        insertToCursor(parseDOM(`<video src="${URI}" />`)[0]);
-                }
+            const [plainText, htmlText] = list.filter(({ type }) =>
+                type.startsWith('text/')
+            );
+            if (!htmlText && plainText.type === 'text/plain') {
+                const raw = await new Promise<string>(resolve =>
+                    plainText.getAsString(resolve)
+                );
+                insertToCursor(await this.clearHTML(marked(raw) as string));
+            } else {
+                for (const item of list) await this.transferMedia(item);
+            }
             this.updateValue(root.innerHTML);
         };
     };

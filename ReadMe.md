@@ -59,47 +59,51 @@ export class HTMLEditor extends Component implements EditorComponent {
 
 #### Text
 
-1. [Bold](https://idea2app.github.io/Edkit/classes/tools_text.boldtool.html)
-2. [Italic](https://idea2app.github.io/Edkit/classes/tools_text.italictool.html)
-3. [Underline](https://idea2app.github.io/Edkit/classes/tools_text.underlinetool.html)
-4. [Strike through](https://idea2app.github.io/Edkit/classes/tools_text.strikethroughtool.html)
-5. [H1](https://idea2app.github.io/Edkit/classes/tools_text.h1tool.html)
-6. [H2](https://idea2app.github.io/Edkit/classes/tools_text.h2tool.html)
-7. [H3](https://idea2app.github.io/Edkit/classes/tools_text.h3tool.html)
-8. [Font Size down](https://idea2app.github.io/Edkit/classes/tools_text.fontsizedowntool.html)
-9. [Font Size up](https://idea2app.github.io/Edkit/classes/tools_text.fontsizeuptool.html)
-10. [Subscript](https://idea2app.github.io/Edkit/classes/tools_text.subscripttool.html)
-11. [Superscript](https://idea2app.github.io/Edkit/classes/tools_text.superscripttool.html)
-12. [Link](https://idea2app.github.io/Edkit/classes/tools_text.linktool.html)
+1. [Bold](https://idea2app.github.io/Edkit/classes/BoldTool.html)
+2. [Italic](https://idea2app.github.io/Edkit/classes/ItalicTool.html)
+3. [Underline](https://idea2app.github.io/Edkit/classes/UnderlineTool.html)
+4. [Strike through](https://idea2app.github.io/Edkit/classes/StrikeThroughTool.html)
+5. [H1](https://idea2app.github.io/Edkit/classes/H1Tool.html)
+6. [H2](https://idea2app.github.io/Edkit/classes/H2Tool.html)
+7. [H3](https://idea2app.github.io/Edkit/classes/H3Tool.html)
+8. [Font Size down](https://idea2app.github.io/Edkit/classes/FontSizeDownTool.html)
+9. [Font Size up](https://idea2app.github.io/Edkit/classes/FontSizeUpTool.html)
+10. [Subscript](https://idea2app.github.io/Edkit/classes/SubscriptTool.html)
+11. [Superscript](https://idea2app.github.io/Edkit/classes/SuperscriptTool.html)
+12. [Link](https://idea2app.github.io/Edkit/classes/LinkTool.html)
 
 #### Color
 
-1. [Fore Color](https://idea2app.github.io/Edkit/classes/tools_color.forecolortool.html)
-2. [Back Color](https://idea2app.github.io/Edkit/classes/tools_color.backcolortool.html)
+1. [Fore Color](https://idea2app.github.io/Edkit/classes/ForeColorTool.html)
+2. [Back Color](https://idea2app.github.io/Edkit/classes/BackColorTool.html)
 
 #### Layout
 
-1. [Align Left](https://idea2app.github.io/Edkit/classes/tools_layout.alignlefttool.html)
-2. [Align Center](https://idea2app.github.io/Edkit/classes/tools_layout.aligncentertool.html)
-3. [Align Right](https://idea2app.github.io/Edkit/classes/tools_layout.alignrighttool.html)
-4. [Align Full](https://idea2app.github.io/Edkit/classes/tools_layout.alignfulltool.html)
-5. [Ordered list](https://idea2app.github.io/Edkit/classes/tools_layout.orderedlisttool.html)
-6. [Unordered list](https://idea2app.github.io/Edkit/classes/tools_layout.unorderedlisttool.html)
-7. [Horizontal rule](https://idea2app.github.io/Edkit/classes/tools_layout.horizontalruletool.html)
+1. [Align Left](https://idea2app.github.io/Edkit/classes/AlignLeftTool.html)
+2. [Align Center](https://idea2app.github.io/Edkit/classes/AlignCenterTool.html)
+3. [Align Right](https://idea2app.github.io/Edkit/classes/AlignRightTool.html)
+4. [Align Full](https://idea2app.github.io/Edkit/classes/AlignFullTool.html)
+5. [Ordered list](https://idea2app.github.io/Edkit/classes/OrderedListTool.html)
+6. [Unordered list](https://idea2app.github.io/Edkit/classes/UnorderedListTool.html)
+7. [Horizontal rule](https://idea2app.github.io/Edkit/classes/HorizontalRuleTool.html)
 
 #### Media
 
-1. [Embed Web page](https://idea2app.github.io/Edkit/classes/tools_media.iframetool.html)
-2. [Image](https://idea2app.github.io/Edkit/classes/tools_media.imagetool.html)
-3. [Audio](https://idea2app.github.io/Edkit/classes/tools_media.audiotool.html)
-4. [Video](https://idea2app.github.io/Edkit/classes/tools_media.videotool.html)
+1. [Embed Web page](https://idea2app.github.io/Edkit/classes/IFrameTool.html)
+2. [Image](https://idea2app.github.io/Edkit/classes/ImageTool.html)
+3. [Audio](https://idea2app.github.io/Edkit/classes/AudioTool.html)
+4. [Video](https://idea2app.github.io/Edkit/classes/VideoTool.html)
 
 #### Control
 
-1. [Undo](https://idea2app.github.io/Edkit/classes/tools_control.undotool.html)
-2. [Redo](https://idea2app.github.io/Edkit/classes/tools_control.redotool.html)
-3. [Reset](https://idea2app.github.io/Edkit/classes/tools_control.resettool.html)
-4. [Clear](https://idea2app.github.io/Edkit/classes/tools_control.cleartool.html)
+1. [Undo](https://idea2app.github.io/Edkit/classes/UndoTool.html)
+2. [Redo](https://idea2app.github.io/Edkit/classes/RedoTool.html)
+3. [Reset](https://idea2app.github.io/Edkit/classes/ResetTool.html)
+4. [Clear](https://idea2app.github.io/Edkit/classes/ClearTool.html)
+
+#### Extra
+
+1. [Copy Markdown](https://idea2app.github.io/Edkit/classes/CopyMarkdownTool.html)
 
 [1]: https://www.typescriptlang.org/
 [2]: https://libraries.io/npm/edkit

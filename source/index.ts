@@ -4,4 +4,5 @@ export * from './tools/Color';
 export * from './tools/Layout';
 export * from './tools/Media';
 export * from './tools/Control';
+export * from './tools/Markdown';
 export * from './Editor';
