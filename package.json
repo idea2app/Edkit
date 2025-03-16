@@ -1,6 +1,6 @@
 {
     "name": "edkit",
-    "version": "1.2.0",
+    "version": "1.2.2",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "contributors": [
@@ -26,26 +26,26 @@
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@swc/helpers": "^0.5.11",
+        "@swc/helpers": "^0.5.15",
+        "@types/turndown": "^5.0.5",
         "browser-fs-access": "^0.35.0",
-        "marked": "^12.0.2",
+        "marked": "^15.0.7",
         "regenerator-runtime": "^0.14.1",
         "turndown": "^7.2.0",
         "turndown-plugin-gfm": "^1.0.2",
-        "web-utility": "^4.4.0"
+        "web-utility": "^4.4.3"
     },
     "devDependencies": {
-        "@parcel/packager-ts": "~2.12.0",
-        "@parcel/transformer-typescript-types": "~2.12.0",
-        "@types/turndown": "^5.0.4",
-        "husky": "^9.0.11",
-        "lint-staged": "^15.2.5",
+        "@parcel/packager-ts": "~2.13.3",
+        "@parcel/transformer-typescript-types": "~2.13.3",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.5.0",
         "open-cli": "^8.0.0",
-        "parcel": "~2.12.0",
-        "prettier": "^3.3.1",
-        "typedoc": "^0.25.13",
-        "typedoc-plugin-mdn-links": "^3.1.29",
-        "typescript": "~5.4.5"
+        "parcel": "~2.13.3",
+        "prettier": "^3.5.3",
+        "typedoc": "^0.28.0",
+        "typedoc-plugin-mdn-links": "^5.0.1",
+        "typescript": "~5.8.2"
     },
     "prettier": {
         "singleQuote": true,
@@ -68,7 +68,7 @@
         "pack-dist": "rm -rf dist/  &&  parcel build",
         "pack-docs": "rm -rf docs/  &&  typedoc source/",
         "build": "npm run pack-dist  &&  npm run pack-docs",
-        "help": "npm run pack-docs  &&  open-cli docs/index.html",
+        "start": "npm run pack-docs  &&  open-cli docs/index.html",
         "prepublishOnly": "npm test  &&  npm run build"
     }
 }

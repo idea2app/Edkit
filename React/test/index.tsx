@@ -1,4 +1,4 @@
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { formToJSON } from 'web-utility';
 import { configure } from 'mobx';
 
@@ -6,7 +6,7 @@ import { Editor, OriginalTools, ExtraTools } from '../source';
 
 configure({ enforceActions: 'never' });
 
-render(
+createRoot(document.querySelector('main')).render(
     <form
         className="container"
         onSubmit={event => {
@@ -27,6 +27,5 @@ render(
         <button className="btn btn-primary my-2" type="submit">
             √
         </button>
-    </form>,
-    document.querySelector('main')
+    </form>
 );

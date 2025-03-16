@@ -20,10 +20,7 @@ export interface EditorProps
 
 export interface HTMLEditor extends WebField<EditorProps>, EditorComponent {}
 
-@component({
-    tagName: 'html-editor',
-    mode: 'open'
-})
+@component({ tagName: 'html-editor', mode: 'open' })
 @formField
 @observer
 @editor

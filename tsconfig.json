@@ -15,7 +15,6 @@
         "name": "Edkit",
         "excludeExternals": true,
         "excludePrivate": true,
-        "readme": "./ReadMe.md",
         "plugin": ["typedoc-plugin-mdn-links"]
     }
 }
