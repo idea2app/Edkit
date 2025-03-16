@@ -2,7 +2,7 @@ import { EditorComponent, ImageTool, Tool, editor } from 'edkit';
 import { computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { InputHTMLAttributes, Component, createRef } from 'react';
-import { Constructor } from 'web-utility';
+import { Constructor, parseDOM } from 'web-utility';
 
 import { AudioTool, DefaultTools, VideoTool } from './tools';
 
@@ -56,6 +56,9 @@ export class Editor extends Component<EditorProps> implements EditorComponent {
     componentDidMount() {
         this.bootTools();
 
+        if (this.defaultValue != null)
+            this.box.current.append(...parseDOM(this.defaultValue + ''));
+
         document.addEventListener('selectionchange', this.updateTools);
     }
 
@@ -85,7 +88,7 @@ export class Editor extends Component<EditorProps> implements EditorComponent {
     }
 
     render() {
-        const { toolList, defaultValue, innerValue } = this,
+        const { toolList, innerValue } = this,
             { name } = this.props;
 
         return (
@@ -95,7 +98,6 @@ export class Editor extends Component<EditorProps> implements EditorComponent {
                     ref={this.box}
                     className="form-control h-auto"
                     contentEditable
-                    dangerouslySetInnerHTML={{ __html: defaultValue }}
                     onInput={({ currentTarget: { innerHTML } }) =>
                         this.updateValue(innerHTML)
                     }

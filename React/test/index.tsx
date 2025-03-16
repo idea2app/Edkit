@@ -22,6 +22,7 @@ createRoot(document.querySelector('main')).render(
         <Editor
             tools={[...OriginalTools, ...ExtraTools]}
             name="content"
+            defaultValue="Hello <b>Edkit</b>!"
             onChange={console.log}
         />
         <button className="btn btn-primary my-2" type="submit">
