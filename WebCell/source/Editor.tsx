@@ -64,7 +64,7 @@ export class HTMLEditor
             `<div class="form-control h-auto" contenteditable="true">${this.defaultValue || ''}</div>`
         )[0] as HTMLElement;
 
-        this.box.oninput = this.updateValue;
+        this.box.oninput = () => this.updateValue(this.box.innerHTML);
         this.box.onpaste = this.box.ondrop = this.handlePasteDrop;
 
         this.append(this.box);
@@ -88,11 +88,8 @@ export class HTMLEditor
             this.toolList = [...this.toolList];
     };
 
-    updateValue = ({ currentTarget }: InputEvent) => {
-        this.value = (currentTarget as HTMLElement).innerHTML.trim();
-
-        this.emit('change', this.value);
-    };
+    updateValue = (markup: string) =>
+        this.emit('change', (this.value = markup.trim()));
 
     render() {
         return (

@@ -1,6 +1,6 @@
 {
     "name": "edkit",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "contributors": [
@@ -26,26 +26,34 @@
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@swc/helpers": "^0.5.15",
+        "@swc/helpers": "^0.5.17",
         "@types/turndown": "^5.0.5",
         "browser-fs-access": "^0.35.0",
-        "marked": "^15.0.7",
+        "marked": "^15.0.8",
         "regenerator-runtime": "^0.14.1",
         "turndown": "^7.2.0",
         "turndown-plugin-gfm": "^1.0.2",
         "web-utility": "^4.4.3"
     },
     "devDependencies": {
-        "@parcel/packager-ts": "~2.13.3",
-        "@parcel/transformer-typescript-types": "~2.13.3",
+        "@parcel/packager-ts": "~2.14.4",
+        "@parcel/transformer-typescript-types": "~2.14.4",
         "husky": "^9.1.7",
-        "lint-staged": "^15.5.0",
+        "lint-staged": "^15.5.1",
         "open-cli": "^8.0.0",
-        "parcel": "~2.13.3",
+        "parcel": "~2.14.4",
         "prettier": "^3.5.3",
-        "typedoc": "^0.28.0",
+        "typedoc": "^0.28.2",
         "typedoc-plugin-mdn-links": "^5.0.1",
-        "typescript": "~5.8.2"
+        "typescript": "~5.8.3"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "@parcel/watcher",
+            "@swc/core",
+            "lmdb",
+            "msgpackr-extract"
+        ]
     },
     "prettier": {
         "singleQuote": true,

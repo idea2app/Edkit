@@ -25,7 +25,11 @@ export interface EditorComponent {
         data: string | Blob
     ) => Promise<string>;
 
+    transferMedia(item: DataTransferItem): Promise<void>;
+
     clearHTML: (markup: string) => Promise<DocumentFragment>;
+
+    updateValue(value: string): void;
 
     handlePasteDrop: (event: DataTransferEvent) => Promise<void>;
 }
@@ -38,6 +42,7 @@ export const editor = <T extends Constructor<any>>(
         declare imageTool: ImageTool | undefined;
         declare audioTool: AudioTool | undefined;
         declare videoTool: VideoTool | undefined;
+        declare updateValue: (value: string) => void;
 
         async uploadFile(
             tool: ImageTool | AudioTool | VideoTool,

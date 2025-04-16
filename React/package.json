@@ -23,9 +23,9 @@
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
     "dependencies": {
-        "@swc/helpers": "^0.5.15",
-        "edkit": "^1.2.1",
-        "mobx": "^6.13.6",
+        "@swc/helpers": "^0.5.17",
+        "edkit": "^1.2.2",
+        "mobx": "^6.13.7",
         "mobx-react": "^9.2.0",
         "web-utility": "^4.4.3"
     },
@@ -34,17 +34,25 @@
         "react-dom": ">=16"
     },
     "devDependencies": {
-        "@parcel/config-default": "~2.13.3",
-        "@parcel/packager-ts": "~2.13.3",
-        "@parcel/transformer-typescript-tsc": "~2.13.3",
-        "@parcel/transformer-typescript-types": "~2.13.3",
-        "@types/react": "^19.0.10",
-        "@types/react-dom": "^19.0.4",
-        "parcel": "~2.13.3",
+        "@parcel/config-default": "~2.14.4",
+        "@parcel/packager-ts": "~2.14.4",
+        "@parcel/transformer-typescript-tsc": "~2.14.4",
+        "@parcel/transformer-typescript-types": "~2.14.4",
+        "@types/react": "^19.1.2",
+        "@types/react-dom": "^19.1.2",
+        "parcel": "~2.14.4",
         "process": "^0.11.10",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "typescript": "~5.8.2"
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "typescript": "~5.8.3"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "@parcel/watcher",
+            "@swc/core",
+            "lmdb",
+            "msgpackr-extract"
+        ]
     },
     "browserslist": "> 0.5%, last 2 versions, not dead, IE 11",
     "targets": {
