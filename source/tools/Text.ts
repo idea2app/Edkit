@@ -28,7 +28,7 @@ export abstract class StrikeThroughTool extends Tool {
 }
 
 export abstract class HeadingTool extends Tool {
-    command = document.queryCommandSupported('heading')
+    command = globalThis.document?.queryCommandSupported('heading')
         ? 'heading'
         : 'formatBlock';
 
