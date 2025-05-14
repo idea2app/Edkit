@@ -1,7 +1,7 @@
 import { fileOpen } from 'browser-fs-access';
 
 export function getAnchorElement() {
-    const { anchorNode } = self.getSelection() || {};
+    const { anchorNode } = globalThis.getSelection?.() || {};
 
     if (anchorNode) return anchorNode.parentElement;
 }
