@@ -20,6 +20,7 @@ export abstract class Tool {
 
         return (
             !command ||
+            !globalThis.document ||
             document.queryCommandSupported(command) ||
             document.queryCommandEnabled(command)
         );
@@ -36,7 +37,8 @@ export abstract class Tool {
                 box.matches(tags.map(tag => `${tag}, ${tag} *`).join(', '))
             );
         }
-        if (command) return document.queryCommandState(command);
+        if (command)
+            return !!globalThis.document && document.queryCommandState(command);
 
         return false;
     }
