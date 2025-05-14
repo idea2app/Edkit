@@ -27,38 +27,29 @@ export abstract class StrikeThroughTool extends Tool {
     command = 'strikeThrough';
 }
 
-const HeadingCommand = document.queryCommandSupported('heading')
-    ? 'heading'
-    : 'formatBlock';
+export abstract class HeadingTool extends Tool {
+    command = document.queryCommandSupported('heading')
+        ? 'heading'
+        : 'formatBlock';
 
-export abstract class H1Tool extends Tool {
+    execute(editor: HTMLElement) {
+        this.edit(editor, this.name);
+    }
+}
+
+export abstract class H1Tool extends HeadingTool {
     name = 'H1';
     tags = ['h1'];
-    command = HeadingCommand;
-
-    execute(editor: HTMLElement) {
-        this.edit(editor, 'H1');
-    }
 }
 
-export abstract class H2Tool extends Tool {
+export abstract class H2Tool extends HeadingTool {
     name = 'H2';
     tags = ['h2'];
-    command = HeadingCommand;
-
-    execute(editor: HTMLElement) {
-        this.edit(editor, 'H2');
-    }
 }
 
-export abstract class H3Tool extends Tool {
+export abstract class H3Tool extends HeadingTool {
     name = 'H3';
     tags = ['h3'];
-    command = HeadingCommand;
-
-    execute(editor: HTMLElement) {
-        this.edit(editor, 'H3');
-    }
 }
 
 export abstract class FontSizeDownTool extends Tool {

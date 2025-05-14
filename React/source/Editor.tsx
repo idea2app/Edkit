@@ -1,31 +1,37 @@
 import { EditorComponent, ImageTool, Tool, editor } from 'edkit';
 import { computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
-import { InputHTMLAttributes, Component, createRef } from 'react';
+import { FormComponent, FormComponentProps } from 'mobx-react-helper';
+import { createRef } from 'react';
 import { Constructor, parseDOM } from 'web-utility';
 
 import { AudioTool, DefaultTools, VideoTool } from './tools';
 
-export interface EditorProps
-    extends Pick<
-        InputHTMLAttributes<HTMLInputElement>,
-        'name' | 'defaultValue'
-    > {
+export interface EditorProps extends FormComponentProps {
     tools?: Constructor<Tool>[];
-    onChange?: (value: string) => any;
 }
 
 export interface Editor extends EditorComponent {}
 
 @observer
 @editor
-export class Editor extends Component<EditorProps> implements EditorComponent {
+export class Editor
+    extends FormComponent<EditorProps>
+    implements EditorComponent
+{
     static displayName = 'Editor';
 
     box = createRef<HTMLDivElement>();
 
     @observable
-    accessor toolList: Tool[] = [];
+    accessor cursorPoint = '';
+
+    @computed
+    get toolList(): Tool[] {
+        return (this.observedProps.tools || DefaultTools).map(
+            ToolButton => new ToolButton()
+        );
+    }
 
     @computed
     get imageTool() {
@@ -48,47 +54,41 @@ export class Editor extends Component<EditorProps> implements EditorComponent {
         ) as VideoTool;
     }
 
-    defaultValue = this.props.defaultValue;
-
-    @observable
-    accessor innerValue = this.defaultValue;
-
     componentDidMount() {
-        this.bootTools();
+        super.componentDidMount();
 
-        if (this.defaultValue != null)
-            this.box.current.append(...parseDOM(this.defaultValue + ''));
+        const { defaultValue } = this.props;
+
+        if (defaultValue != null)
+            this.box.current.append(...parseDOM(defaultValue + ''));
 
         document.addEventListener('selectionchange', this.updateTools);
     }
 
-    componentDidUpdate({ tools }: Readonly<EditorProps>) {
-        if (tools !== this.props.tools) this.bootTools();
-    }
-
     componentWillUnmount() {
+        super.componentWillUnmount();
+
         document.removeEventListener('selectionchange', this.updateTools);
     }
 
-    bootTools() {
-        const { tools = DefaultTools } = this.props;
-
-        this.toolList = tools.map(ToolButton => new ToolButton());
-    }
-
     updateTools = () => {
-        if (this.box.current === document.activeElement)
-            this.toolList = [...this.toolList];
+        if (this.box.current !== document.activeElement) return;
+
+        const { endContainer } = getSelection().getRangeAt(0) || {};
+        const { x, y } =
+            (endContainer instanceof Element
+                ? endContainer
+                : endContainer.parentElement
+            )?.getBoundingClientRect() || {};
+
+        this.cursorPoint = [x, y] + '';
     };
 
-    updateValue(markup: string) {
-        this.innerValue = markup = markup.trim();
-
-        this.props.onChange?.(markup);
-    }
+    updateValue = (markup: string) => (this.innerValue = markup.trim());
 
     render() {
-        const { toolList, innerValue } = this,
+        // Don't remove unused variable `cursorPoint`, which is used for triggering updates
+        const { cursorPoint, toolList, innerValue } = this,
             { name } = this.props;
 
         return (
