@@ -1,6 +1,6 @@
 {
     "name": "react-bootstrap-editor",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "contributors": [
@@ -24,10 +24,10 @@
     "types": "dist/index.d.ts",
     "dependencies": {
         "@swc/helpers": "^0.5.17",
-        "edkit": "^1.2.3",
+        "edkit": "^1.2.7",
         "mobx": "^6.13.7",
         "mobx-react": "^9.2.0",
-        "mobx-react-helper": "^0.4.0",
+        "mobx-react-helper": "^0.4.1",
         "web-utility": "^4.4.3"
     },
     "peerDependencies": {
@@ -35,13 +35,13 @@
         "react-dom": ">=16"
     },
     "devDependencies": {
-        "@parcel/config-default": "~2.15.0",
-        "@parcel/packager-ts": "~2.15.0",
-        "@parcel/transformer-typescript-tsc": "~2.15.0",
-        "@parcel/transformer-typescript-types": "~2.15.0",
-        "@types/react": "^19.1.4",
+        "@parcel/config-default": "~2.15.1",
+        "@parcel/packager-ts": "~2.15.1",
+        "@parcel/transformer-typescript-tsc": "~2.15.1",
+        "@parcel/transformer-typescript-types": "~2.15.1",
+        "@types/react": "^19.1.5",
         "@types/react-dom": "^19.1.5",
-        "parcel": "~2.15.0",
+        "parcel": "~2.15.1",
         "process": "^0.11.10",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",

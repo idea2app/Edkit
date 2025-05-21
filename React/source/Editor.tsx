@@ -3,7 +3,7 @@ import { computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { FormComponent, FormComponentProps } from 'mobx-react-helper';
 import { createRef } from 'react';
-import { Constructor, parseDOM } from 'web-utility';
+import { Constructor } from 'web-utility';
 
 import { AudioTool, DefaultTools, VideoTool } from './tools';
 
@@ -59,8 +59,7 @@ export class Editor
 
         const { defaultValue } = this.props;
 
-        if (defaultValue != null)
-            this.box.current.append(...parseDOM(defaultValue + ''));
+        if (defaultValue != null) this.box.current.innerHTML = defaultValue;
 
         document.addEventListener('selectionchange', this.updateTools);
     }
