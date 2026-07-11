@@ -1,6 +1,6 @@
 {
     "name": "react-bootstrap-editor",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "contributors": [
@@ -20,40 +20,38 @@
         "url": "https://github.com/idea2app/Edkit/issues"
     },
     "main": "dist/index.js",
+    "module": "dist/index.esm.js",
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
+    "exports": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.esm.js",
+        "require": "./dist/index.js"
+    },
     "dependencies": {
-        "@swc/helpers": "^0.5.17",
-        "edkit": "^1.2.7",
-        "mobx": "^6.13.7",
-        "mobx-react": "^9.2.0",
-        "mobx-react-helper": "^0.4.1",
-        "web-utility": "^4.4.3"
+        "@swc/helpers": "^0.5.23",
+        "edkit": "workspace:*",
+        "mobx": "^6.16.1",
+        "mobx-react": "^9.2.2",
+        "mobx-react-helper": "^0.5.1",
+        "web-utility": "^4.7.2"
     },
     "peerDependencies": {
         "react": ">=16",
         "react-dom": ">=16"
     },
     "devDependencies": {
-        "@parcel/config-default": "~2.15.1",
-        "@parcel/packager-ts": "~2.15.1",
-        "@parcel/transformer-typescript-tsc": "~2.15.1",
-        "@parcel/transformer-typescript-types": "~2.15.1",
-        "@types/react": "^19.1.5",
-        "@types/react-dom": "^19.1.5",
-        "parcel": "~2.15.1",
+        "@parcel/config-default": "~2.16.4",
+        "@parcel/packager-ts": "~2.16.4",
+        "@parcel/transformer-typescript-tsc": "~2.16.4",
+        "@parcel/transformer-typescript-types": "~2.16.4",
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "parcel": "~2.16.4",
         "process": "^0.11.10",
-        "react": "^19.1.0",
-        "react-dom": "^19.1.0",
-        "typescript": "~5.8.3"
-    },
-    "pnpm": {
-        "onlyBuiltDependencies": [
-            "@parcel/watcher",
-            "@swc/core",
-            "lmdb",
-            "msgpackr-extract"
-        ]
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7",
+        "typescript": "~5.9.3"
     },
     "browserslist": "> 0.5%, last 2 versions, not dead, IE 11",
     "targets": {
@@ -65,7 +63,7 @@
         "clean": "rm -rf .parcel-cache/ dist/",
         "start": "npm run clean  &&  cd test/  &&  parcel index.html --open",
         "pack-demo": "rm -rf .parcel-cache/ test/dist/  &&  cd test/  &&  parcel build index.html --public-url .",
-        "build": "npm run clean  &&  parcel build",
+        "build": "npm run clean  &&  parcel build --no-cache",
         "prepublishOnly": "npm run build  &&  npm run pack-demo"
     }
 }

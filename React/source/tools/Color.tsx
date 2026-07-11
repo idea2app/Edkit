@@ -6,8 +6,9 @@ import {
     BackColorTool as BCT
 } from 'edkit';
 
-export interface ColorSelectorProps
-    extends Partial<Record<'className' | 'title' | 'value', string>> {
+export interface ColorSelectorProps extends Partial<
+    Record<'className' | 'title' | 'value', string>
+> {
     icon: string;
     type: ColorName;
     onChange?: (color: string) => any;
@@ -40,13 +41,17 @@ export const ColorSelector: FC<ColorSelectorProps> = ({
             }}
             onClick={event => {
                 event.preventDefault();
-                (
-                    event.currentTarget
-                        .previousElementSibling as HTMLInputElement
-                ).click();
+
+                const input = event.currentTarget
+                    .previousElementSibling as HTMLInputElement;
+
+                input.click();
             }}
         >
-            <i className={`bi-${icon}`} />
+            <i
+                className={`bi-${icon}`}
+                style={type !== 'color' ? { filter: 'invert(1)' } : undefined}
+            />
         </button>
     </span>
 );

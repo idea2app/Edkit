@@ -12,8 +12,10 @@ import { Constructor, parseDOM } from 'web-utility';
 
 import { AudioTool, DefaultTools, VideoTool } from './tools';
 
-export interface EditorProps
-    extends Pick<WebCellProps<HTMLInputElement>, 'name' | 'defaultValue'> {
+export interface EditorProps extends Pick<
+    WebCellProps<HTMLInputElement>,
+    'name' | 'defaultValue'
+> {
     tools?: Constructor<Tool>[];
     onChange?: (event: CustomEvent<string>) => any;
 }
@@ -61,7 +63,16 @@ export class HTMLEditor
         this.bootTools();
 
         this.box = parseDOM(
-            `<div class="form-control h-auto" contenteditable="true">${this.defaultValue || ''}</div>`
+            `
+<div
+    class="form-control h-auto"
+    contenteditable="true"
+    tabindex="0"
+    role="textbox"
+    aria-multiline="true"
+>
+    ${this.defaultValue || ''}
+</div>`
         )[0] as HTMLElement;
 
         this.box.oninput = () => this.updateValue(this.box.innerHTML);

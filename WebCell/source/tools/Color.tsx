@@ -6,8 +6,10 @@ import {
     BackColorTool as BCT
 } from 'edkit';
 
-export interface ColorSelectorProps
-    extends Omit<WebCellProps<HTMLSpanElement>, 'onChange'> {
+export interface ColorSelectorProps extends Omit<
+    WebCellProps<HTMLSpanElement>,
+    'onChange'
+> {
     icon: string;
     type: ColorName;
     value?: string;
@@ -43,13 +45,17 @@ export const ColorSelector: FC<ColorSelectorProps> = ({
             }}
             onClick={event => {
                 event.preventDefault();
-                (
-                    (event.currentTarget as HTMLButtonElement)
-                        .previousElementSibling as HTMLInputElement
-                ).click();
+
+                const input = (event.currentTarget as HTMLButtonElement)
+                    .previousElementSibling as HTMLInputElement;
+
+                input.click();
             }}
         >
-            <i className={`bi-${icon}`} />
+            <i
+                className={`bi-${icon}`}
+                style={type !== 'color' ? { filter: 'invert(1)' } : undefined}
+            />
         </button>
     </span>
 );
