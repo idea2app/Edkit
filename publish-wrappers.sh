@@ -5,7 +5,7 @@ mkdir -p docs
 for name in "$@"; do
     (
         cd "$name"
-        pnpm publish || true
+        pnpm publish --no-git-checks || true
     )
     if [ -d "$name/test/dist" ]; then
         rm -rf "docs/$name"
