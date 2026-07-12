@@ -1,6 +1,6 @@
 {
     "name": "boot-cell-editor",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "description": "Lightweight Rich Text Editor based on TypeScript, WebCell & Bootstrap",
@@ -17,31 +17,29 @@
         "url": "https://github.com/idea2app/Edkit/issues"
     },
     "main": "dist/index.js",
+    "module": "dist/index.esm.js",
     "source": "source/index.ts",
     "types": "dist/index.d.ts",
+    "exports": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.esm.js",
+        "require": "./dist/index.js"
+    },
     "dependencies": {
-        "@swc/helpers": "^0.5.17",
-        "dom-renderer": "^2.6.2",
-        "edkit": "^1.2.2",
-        "mobx": "^6.13.7",
-        "web-cell": "^3.0.4",
-        "web-utility": "^4.4.3"
+        "@swc/helpers": "^0.5.23",
+        "dom-renderer": "^2.6.4",
+        "edkit": "workspace:*",
+        "mobx": "^6.16.1",
+        "web-cell": "^3.2.2",
+        "web-utility": "^4.7.2"
     },
     "devDependencies": {
-        "@parcel/config-default": "~2.14.4",
-        "@parcel/packager-ts": "~2.14.4",
-        "@parcel/transformer-typescript-tsc": "~2.14.4",
-        "@parcel/transformer-typescript-types": "~2.14.4",
-        "parcel": "~2.14.4",
-        "typescript": "~5.8.3"
-    },
-    "pnpm": {
-        "onlyBuiltDependencies": [
-            "@parcel/watcher",
-            "@swc/core",
-            "lmdb",
-            "msgpackr-extract"
-        ]
+        "@parcel/config-default": "~2.16.4",
+        "@parcel/packager-ts": "~2.16.4",
+        "@parcel/transformer-typescript-tsc": "~2.16.4",
+        "@parcel/transformer-typescript-types": "~2.16.4",
+        "parcel": "~2.16.4",
+        "typescript": "~5.9.3"
     },
     "browserslist": "> 0.5%, last 2 versions, not dead, IE 11",
     "targets": {
@@ -53,7 +51,7 @@
         "clean": "rm -rf .parcel-cache/ dist/",
         "start": "npm run clean  &&  cd test/  &&  parcel index.html --open",
         "pack-demo": "rm -rf .parcel-cache/ test/dist/  &&  cd test/  &&  parcel build index.html --public-url .",
-        "build": "npm run clean  &&  parcel build",
+        "build": "npm run clean  &&  parcel build --no-cache",
         "prepublishOnly": "npm run build  &&  npm run pack-demo"
     }
 }

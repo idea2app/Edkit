@@ -97,6 +97,9 @@ export class Editor
                     ref={this.box}
                     className="form-control h-auto"
                     contentEditable
+                    tabIndex={0}
+                    role="textbox"
+                    aria-multiline="true"
                     onInput={({ currentTarget: { innerHTML } }) =>
                         this.updateValue(innerHTML)
                     }
