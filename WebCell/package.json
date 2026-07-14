@@ -1,6 +1,6 @@
 {
     "name": "boot-cell-editor",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "description": "Lightweight Rich Text Editor based on TypeScript, WebCell & Bootstrap",
@@ -28,7 +28,7 @@
     "dependencies": {
         "@swc/helpers": "^0.5.23",
         "dom-renderer": "^2.6.4",
-        "edkit": "workspace:*",
+        "edkit": "workspace:^",
         "mobx": "^6.16.1",
         "web-cell": "^3.2.2",
         "web-utility": "^4.7.2"

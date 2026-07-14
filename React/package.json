@@ -1,6 +1,6 @@
 {
     "name": "react-bootstrap-editor",
-    "version": "2.1.2",
+    "version": "2.1.3",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "contributors": [
@@ -30,7 +30,7 @@
     },
     "dependencies": {
         "@swc/helpers": "^0.5.23",
-        "edkit": "workspace:*",
+        "edkit": "workspace:^",
         "mobx": "^6.16.1",
         "mobx-react": "^9.2.2",
         "mobx-react-helper": "^0.5.1",
@@ -38,7 +38,7 @@
     },
     "peerDependencies": {
         "react": ">=16",
-        "react-dom": ">=16"
+        "react-dom": ">=16.4.2"
     },
     "devDependencies": {
         "@parcel/config-default": "~2.16.4",

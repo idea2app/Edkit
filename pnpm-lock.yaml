@@ -18,7 +18,7 @@ importers:
         specifier: ^0.38.0
         version: 0.38.0
       marked:
-        specifier: ^18.0.6
+        specifier: '>=4.0.10'
         version: 18.0.6
       regenerator-runtime:
         specifier: ^0.14.1
@@ -70,7 +70,7 @@ importers:
         specifier: ^0.5.23
         version: 0.5.23
       edkit:
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:..
       mobx:
         specifier: ^6.16.1
@@ -130,7 +130,7 @@ importers:
         specifier: ^2.6.4
         version: 2.6.4(typescript@5.9.3)
       edkit:
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:..
       mobx:
         specifier: ^6.16.1
