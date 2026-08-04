@@ -92,6 +92,14 @@ export class Editor
 
         return (
             <>
+                <link
+                    rel="stylesheet"
+                    href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+                />
+                <link
+                    rel="stylesheet"
+                    href="https://unpkg.com/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+                />
                 <header>{toolList.map(tool => tool.render(this.box))}</header>
                 <div
                     ref={this.box}

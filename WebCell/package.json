@@ -1,6 +1,6 @@
 {
     "name": "boot-cell-editor",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "license": "LGPL-3.0",
     "author": "shiy2008@gmail.com",
     "description": "Lightweight Rich Text Editor based on TypeScript, WebCell & Bootstrap",
@@ -29,15 +29,18 @@
         "@swc/helpers": "^0.5.23",
         "dom-renderer": "^2.6.4",
         "edkit": "workspace:^",
-        "mobx": "^6.16.1",
         "web-cell": "^3.2.2",
         "web-utility": "^4.7.2"
+    },
+    "peerDependencies": {
+        "mobx": ">=6.11"
     },
     "devDependencies": {
         "@parcel/config-default": "~2.16.4",
         "@parcel/packager-ts": "~2.16.4",
         "@parcel/transformer-typescript-tsc": "~2.16.4",
         "@parcel/transformer-typescript-types": "~2.16.4",
+        "mobx": "^7.0.0",
         "parcel": "~2.16.4",
         "typescript": "~5.9.3"
     },

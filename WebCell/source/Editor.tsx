@@ -1,5 +1,5 @@
 import { EditorComponent, ImageTool, Tool, editor } from 'edkit';
-import { computed, observable } from 'mobx';
+import { computed, observable, observableShallow } from 'mobx';
 import {
     WebCellProps,
     WebField,
@@ -11,6 +11,9 @@ import {
 import { Constructor, parseDOM } from 'web-utility';
 
 import { AudioTool, DefaultTools, VideoTool } from './tools';
+
+const shallow =
+    observableShallow || Reflect.get(observable, 'shallow', observable);
 
 export interface EditorProps extends Pick<
     WebCellProps<HTMLInputElement>,
@@ -30,7 +33,7 @@ export class HTMLEditor
     extends HTMLElement
     implements WebField<EditorProps>, EditorComponent
 {
-    @observable.shallow
+    @shallow
     accessor tools: EditorProps['tools'];
 
     @observable
@@ -107,11 +110,11 @@ export class HTMLEditor
             <>
                 <link
                     rel="stylesheet"
-                    href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+                    href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css"
                 />
                 <link
                     rel="stylesheet"
-                    href="https://unpkg.com/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+                    href="https://unpkg.com/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
                 />
                 <header>
                     {this.toolList.map(tool => tool.render(this.box))}

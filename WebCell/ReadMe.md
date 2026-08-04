@@ -38,21 +38,6 @@ npm install web-cell boot-cell-editor
 }
 ```
 
-#### HTML entry
-
-```html
-<head>
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    />
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
-</head>
-```
-
 ### Initialization
 
 ```javascript
@@ -77,4 +62,4 @@ export class PostEdit extends HTMLElement {
 [2]: https://web-cell.dev/
 [3]: https://getbootstrap.com/
 [4]: https://libraries.io/npm/boot-cell-editor
-[5]: https://nodei.co/npm/boot-cell-editor/
+[5]: https://npm.im/boot-cell-editor/

@@ -108,6 +108,6 @@ export class HTMLEditor extends Component implements EditorComponent {
 [1]: https://www.typescriptlang.org/
 [2]: https://libraries.io/npm/edkit
 [3]: https://github.com/idea2app/Edkit/actions/workflows/main.yml
-[4]: https://nodei.co/npm/edkit/
+[4]: https://npm.im/edkit/
 [5]: https://www.webcomponents.org/
 [6]: https://react.dev/

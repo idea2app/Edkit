@@ -49,16 +49,7 @@ npm install react react-bootstrap-editor
 #### HTML entry
 
 ```html
-<head>
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    />
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
-</head>
+<head> </head>
 ```
 
 ### Initialization
@@ -84,4 +75,4 @@ export class PostEdit extends PureComponent {
 [2]: https://reactjs.org/
 [3]: https://getbootstrap.com/
 [4]: https://libraries.io/npm/react-bootstrap-editor
-[5]: https://nodei.co/npm/react-bootstrap-editor/
+[5]: https://npm.im/react-bootstrap-editor/
