@@ -13,6 +13,11 @@
         "bootstrap"
     ],
     "homepage": "https://github.com/idea2app/Edkit/tree/master/WebCell/",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/idea2app/Edkit.git",
+        "directory": "WebCell"
+    },
     "bugs": {
         "url": "https://github.com/idea2app/Edkit/issues"
     },
