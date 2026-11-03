@@ -26,9 +26,7 @@ jobs:
             - name: Build & Publish
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: |
-                  pnpm publish --access public --provenance --no-git-checks
-                  pnpm publish-wrappers
+              run: pnpm -r --include-workspace-root publish --access public --provenance --no-git-checks
 
             - name: Upload Web browser traces
               uses: actions/upload-artifact@v7

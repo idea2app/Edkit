@@ -64,7 +64,7 @@
     "scripts": {
         "clean": "rm -rf .parcel-cache/ dist/",
         "start": "npm run clean  &&  cd test/  &&  parcel index.html --open",
-        "pack-demo": "rm -rf .parcel-cache/ test/dist/  &&  cd test/  &&  parcel build index.html --public-url .",
+        "pack-demo": "cd test/  &&  parcel build index.html --dist-dir ../../docs/React --public-url . --no-cache",
         "build": "npm run clean  &&  parcel build --no-cache",
         "prepublishOnly": "npm run build  &&  npm run pack-demo"
     }

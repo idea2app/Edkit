@@ -97,10 +97,8 @@
         "test": "npm run lint  &&  npm run test-pack  &&  npm run test-browser",
         "pack-dist": "rm -rf dist/  &&  parcel build --no-cache",
         "pack-docs": "rm -rf docs/  &&  typedoc source/",
-        "pack-wrappers": "npm run -C WebCell build  &&  npm run -C React build",
-        "build": "npm run pack-dist  &&  npm run pack-docs  &&  npm run pack-wrappers",
+        "build": "npm run pack-dist  &&  npm run pack-docs",
         "start": "npm run pack-docs  &&  open-cli docs/index.html",
-        "prepublishOnly": "npm test  &&  npm run build",
-        "publish-wrappers": "sh publish-wrappers.sh WebCell React"
+        "prepublishOnly": "npm test  &&  npm run build"
     }
 }
