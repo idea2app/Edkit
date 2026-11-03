@@ -4,9 +4,7 @@ import { Tool } from 'edkit';
 export function renderTool(this: Tool, editor: RefObject<HTMLElement>) {
     const { title, active, icon, usable } = this;
 
-    const Class = `btn btn-${
-        (active ? '' : 'outline-') + 'secondary'
-    } me-2 mb-2`;
+    const Class = `btn-${active ? 'solid' : 'outline'} theme-secondary me-3 mb-3`;
 
     return (
         <button

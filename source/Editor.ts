@@ -23,7 +23,7 @@ export interface EditorComponent {
     uploadFile: (
         tool: ImageTool | AudioTool | VideoTool,
         data: string | Blob
-    ) => Promise<string>;
+    ) => Promise<string | undefined>;
 
     transferMedia(item: DataTransferItem): Promise<void>;
 
@@ -44,10 +44,21 @@ export const editor = <T extends Constructor<any>>(
         declare videoTool: VideoTool | undefined;
         declare updateValue: (value: string) => void;
 
+        uploadFile(
+            tool: ImageTool | AudioTool | VideoTool,
+            data: string
+        ): Promise<string>;
+        uploadFile(
+            tool: ImageTool | AudioTool | VideoTool,
+            data: string | Blob | null
+        ): Promise<string | undefined>;
         async uploadFile(
             tool: ImageTool | AudioTool | VideoTool,
-            data: string | Blob
+            data: string | Blob | null
         ) {
+            if (data === null)
+                throw new TypeError('Missing transferred media data');
+
             if (typeof data === 'string' && !/^(data|blob):/.test(data))
                 return data;
 
@@ -116,16 +127,21 @@ export const editor = <T extends Constructor<any>>(
             event.preventDefault();
 
             const root = event.currentTarget as HTMLElement;
-            const list =
-                event.type === 'paste'
-                    ? [...(event as ClipboardEvent).clipboardData.items]
-                    : [...(event as DragEvent).dataTransfer.items];
+            const transfer =
+                'clipboardData' in event
+                    ? event.clipboardData
+                    : event.dataTransfer;
+            if (!transfer)
+                throw new TypeError('Missing Clipboard or Drag data');
+
+            const list = [...transfer.items];
+
             root.focus();
 
             const [plainText, htmlText] = list.filter(({ type }) =>
                 type.startsWith('text/')
             );
-            if (!htmlText && plainText.type === 'text/plain') {
+            if (!htmlText && plainText?.type === 'text/plain') {
                 const raw = await new Promise<string>(resolve =>
                     plainText.getAsString(resolve)
                 );

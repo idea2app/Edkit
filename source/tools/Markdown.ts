@@ -1,3 +1,5 @@
+/// <reference path="./turndown-plugin-gfm.d.ts" />
+
 import Turndown from 'turndown';
 import { gfm, strikethrough, tables, taskListItems } from 'turndown-plugin-gfm';
 
@@ -24,7 +26,8 @@ export const turndown = new Turndown({
     })
     .addRule('img-srcset', {
         filter: ['img'],
-        replacement(_, { alt, title, src, srcset }: HTMLImageElement) {
+        replacement(_, node) {
+            const { alt, title, src, srcset } = node as HTMLImageElement;
             const [firstSet] = srcset.split(',')[0]?.split(/\s+/) || [];
             const content = [
                 src || firstSet,

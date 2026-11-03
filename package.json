@@ -43,7 +43,7 @@
         "regenerator-runtime": "^0.14.1",
         "turndown": "^7.2.4",
         "turndown-plugin-gfm": "^1.0.2",
-        "web-utility": "^4.7.2"
+        "web-utility": "^4.8.1"
     },
     "peerDependencies": {
         "marked": ">=4.0.10"
@@ -51,15 +51,23 @@
     "devDependencies": {
         "@parcel/packager-ts": "~2.16.4",
         "@parcel/transformer-typescript-types": "~2.16.4",
+        "@swc-node/register": "^1.12.1",
+        "@swc/core": "^1.16.21",
+        "@types/node": "^26.6.6",
+        "bootstrap": "^6.0.0-alpha.1",
+        "bootstrap-icons": "^1.13.2",
         "husky": "^9.1.7",
-        "lint-staged": "^17.3.0",
-        "marked": "^18.0.9",
+        "koapache": "^3.0.0",
+        "lint-staged": "^17.6.0",
+        "marked": "^18.1.2",
         "open-cli": "^9.0.0",
         "parcel": "~2.16.4",
-        "prettier": "^3.9.6",
+        "playwright": "^1.64.1",
+        "prettier": "^3.9.10",
+        "start-server-and-test": "^3.0.13",
         "typedoc": "^0.28.20",
         "typedoc-plugin-mdn-links": "^5.1.1",
-        "typescript": "~5.9.3"
+        "typescript": "~6.0.3"
     },
     "prettier": {
         "singleQuote": true,
@@ -78,7 +86,15 @@
     },
     "scripts": {
         "prepare": "husky",
-        "test": "lint-staged",
+        "install": "playwright install --with-deps chromium firefox webkit",
+        "test-pack-WebCell": "cd WebCell/test  &&  parcel build index.html --dist-dir ../../test/dist/webcell --public-url . --no-cache --no-optimize --no-scope-hoist",
+        "test-pack-React": "cd React/test  &&  parcel build index.html --dist-dir ../../test/dist/react --public-url . --no-cache --no-optimize --no-scope-hoist",
+        "test-pack": "npm run test-pack-WebCell  &&  npm run test-pack-React",
+        "test-serve": "web-server test/dist --port 8080",
+        "test-run": "cd test  &&  node --enable-source-maps --import @swc-node/register/esm-register --test --test-concurrency=1 *.test.ts",
+        "test-browser": "start-server-and-test test-serve \"http://127.0.0.1:8080/webcell/index.html|http://127.0.0.1:8080/react/index.html\" test-run",
+        "lint": "lint-staged  &&  tsc --noEmit -p test/tsconfig.json",
+        "test": "npm run lint  &&  npm run test-pack  &&  npm run test-browser",
         "pack-dist": "rm -rf dist/  &&  parcel build --no-cache",
         "pack-docs": "rm -rf docs/  &&  typedoc source/",
         "pack-wrappers": "npm run -C WebCell build  &&  npm run -C React build",

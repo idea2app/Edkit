@@ -32,7 +32,7 @@ export const ColorSelector: FC<ColorSelectorProps> = ({
             className="position-absolute w-100 h-100 start-0 top-0 z-n1 rounded-3"
             type="color"
             value={value}
-            onChange={({ target }) =>
+            onChange={({ target }: Event) =>
                 onChange?.((target as HTMLInputElement).value)
             }
         />
@@ -43,7 +43,7 @@ export const ColorSelector: FC<ColorSelectorProps> = ({
                 backgroundColor: type === 'color' ? 'white' : value,
                 borderColor: value
             }}
-            onClick={event => {
+            onClick={(event: MouseEvent) => {
                 event.preventDefault();
 
                 const input = (event.currentTarget as HTMLButtonElement)
@@ -65,7 +65,7 @@ export function renderColorTool(this: ColorTool, editor: HTMLElement) {
 
     return (
         <ColorSelector
-            className="me-2 mb-2"
+            className="me-3 mb-3"
             key={icon}
             title={name}
             icon={icon}

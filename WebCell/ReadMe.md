@@ -14,6 +14,13 @@ https://idea2app.github.io/Edkit/WebCell/
 
 https://github.com/idea2app/Edkit#tools
 
+## Versions
+
+|  SemVer  |  branch  |    status    | ES decorator |   MobX   | Edkit | Bootstrap |
+| :------: | :------: | :----------: | :----------: | :------: | :---: | :-------: |
+| `>=2 <3` | `master` | ✅developing |   stage-3    | `>=6.11` |  v1   |    v6     |
+| `>=1 <2` | `master` | ❌deprecated |   stage-3    | `>=6.11` |  v1   |    v5     |
+
 ## Usage
 
 ### Installation
@@ -30,7 +37,8 @@ npm install web-cell boot-cell-editor
 {
     "compilerOptions": {
         "target": "ES6",
-        "moduleResolution": "Node",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
         "useDefineForClassFields": true,
         "jsx": "react-jsx",
         "jsxImportSource": "dom-renderer"

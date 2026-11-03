@@ -59,7 +59,8 @@ export class Editor
 
         const { defaultValue } = this.props;
 
-        if (defaultValue != null) this.box.current.innerHTML = defaultValue;
+        if (defaultValue != null && this.box.current)
+            this.box.current.innerHTML = defaultValue;
 
         document.addEventListener('selectionchange', this.updateTools);
     }
@@ -73,7 +74,10 @@ export class Editor
     updateTools = () => {
         if (this.box.current !== document.activeElement) return;
 
-        const { endContainer } = getSelection().getRangeAt(0) || {};
+        const selection = getSelection();
+        if (!selection?.rangeCount) return;
+
+        const { endContainer } = selection.getRangeAt(0);
         const { x, y } =
             (endContainer instanceof Element
                 ? endContainer
@@ -94,7 +98,7 @@ export class Editor
             <>
                 <link
                     rel="stylesheet"
-                    href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+                    href="https://unpkg.com/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css"
                 />
                 <link
                     rel="stylesheet"

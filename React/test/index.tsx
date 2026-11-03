@@ -2,11 +2,18 @@ import { createRoot } from 'react-dom/client';
 import { formToJSON } from 'web-utility';
 import { configure } from 'mobx';
 
-import { Editor, OriginalTools, ExtraTools } from '../source';
+import { Editor, EditorProps, OriginalTools, ExtraTools } from '../source';
 
 configure({ enforceActions: 'never' });
 
-createRoot(document.querySelector('main')).render(
+const params = new URLSearchParams(location.search);
+const preset = params.get('tools');
+
+let tools: EditorProps['tools'] = [...OriginalTools, ...ExtraTools];
+if (preset === 'default') tools = undefined;
+else if (preset === 'custom') tools = [OriginalTools[0]];
+
+createRoot(document.querySelector('main')!).render(
     <form
         className="container"
         onSubmit={event => {
@@ -14,18 +21,27 @@ createRoot(document.querySelector('main')).render(
 
             const { content } = formToJSON(event.currentTarget);
 
-            alert(content);
+            document.querySelector('#submitted')!.textContent = content + '';
+
+            if (!params.has('test')) alert(content);
         }}
     >
         <legend>React Bootstrap editor</legend>
 
         <Editor
-            tools={[...OriginalTools, ...ExtraTools]}
+            tools={tools}
             name="content"
-            defaultValue="Hello <b>Edkit</b>!"
-            onChange={console.log}
+            defaultValue={params.get('value') ?? 'Hello <b>Edkit</b>!'}
+            onChange={value => {
+                document.querySelector('#change')!.textContent = value;
+                console.log(value);
+            }}
         />
-        <button className="btn btn-primary my-2" type="submit">
+        <button
+            className="btn-solid theme-primary my-3"
+            type="submit"
+            aria-label="Submit"
+        >
             √
         </button>
     </form>

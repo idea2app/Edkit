@@ -1,21 +1,25 @@
 {
     "compilerOptions": {
-        "target": "ES5",
-        "module": "ES6",
-        "moduleResolution": "Node",
+        "target": "ES6",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
         "esModuleInterop": true,
-        "downlevelIteration": true,
         "lib": ["ES2023", "DOM", "DOM.Iterable"],
         "skipLibCheck": true,
         "declaration": true,
+        "rootDir": "source/",
         "outDir": "dist/"
     },
     "include": ["source/**/*"],
     "typedocOptions": {
         "name": "Edkit",
+        "includeVersion": true,
         "excludeExternals": true,
         "excludePrivate": true,
         "readme": "ReadMe.md",
-        "plugin": ["typedoc-plugin-mdn-links"]
+        "plugin": ["typedoc-plugin-mdn-links"],
+        "navigationLinks": {
+            "GitHub": "https://github.com/idea2app/Edkit"
+        }
     }
 }

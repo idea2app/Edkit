@@ -64,7 +64,7 @@ export function renderColorTool(
 
     return (
         <ColorSelector
-            className="me-2 mb-2"
+            className="me-3 mb-3"
             key={icon}
             title={name}
             icon={icon}
