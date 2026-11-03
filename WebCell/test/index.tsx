@@ -2,32 +2,49 @@ import { DOMRenderer } from 'dom-renderer';
 import { formToJSON } from 'web-utility';
 import { configure } from 'mobx';
 
-import { HTMLEditor, OriginalTools, ExtraTools } from '../source';
+import { HTMLEditor, EditorProps, OriginalTools, ExtraTools } from '../source';
 
 configure({ enforceActions: 'never' });
 
+const params = new URLSearchParams(location.search);
+const preset = params.get('tools');
+
+let tools: EditorProps['tools'] = [...OriginalTools, ...ExtraTools];
+if (preset === 'default') tools = undefined;
+else if (preset === 'custom') tools = [OriginalTools[0]];
+
 new DOMRenderer().render(
-    // @ts-ignore
     <form
         className="container"
-        onSubmit={event => {
+        onSubmit={(event: SubmitEvent) => {
             event.preventDefault();
 
-            const { content } = formToJSON(event.currentTarget);
+            const { content } = formToJSON(
+                event.currentTarget as HTMLFormElement
+            );
+            document.querySelector('#submitted')!.textContent = content + '';
 
-            alert(content);
+            if (!params.has('test')) alert(content);
         }}
     >
         <legend className="float-none">BootCell editor</legend>
 
         <HTMLEditor
-            tools={[...OriginalTools, ...ExtraTools]}
+            tools={tools}
             name="content"
-            onChange={console.log}
+            defaultValue={params.get('value') ?? 'Hello <b>Edkit</b>!'}
+            onChange={(event: CustomEvent<string>) => {
+                document.querySelector('#change')!.textContent = event.detail;
+                console.log(event);
+            }}
         />
-        <button className="btn btn-primary my-2" type="submit">
+        <button
+            className="btn-solid theme-primary my-3"
+            type="submit"
+            aria-label="Submit"
+        >
             √
         </button>
     </form>,
-    document.querySelector('main')
+    document.querySelector('main')!
 );

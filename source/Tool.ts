@@ -60,13 +60,15 @@ export abstract class Tool {
     }
 
     protected edit(editor: HTMLElement, ...data: any[]) {
+        if (!this.command)
+            throw new ReferenceError(`Missing Command for ${this.name}`);
         editor.focus();
-        document.execCommand(this.command, null, ...data);
+        document.execCommand(this.command, false, ...data);
     }
 
     execute(editor: HTMLElement, ...data: any[]) {
-        var { inputs } = this,
-            values = [];
+        const { inputs } = this;
+        let values: (string | null)[] = [];
 
         if (inputs) {
             const data = inputs.map(input => self.prompt(input));
@@ -98,10 +100,11 @@ export abstract class FileTool extends Tool {
     }
 
     async execute(editor: HTMLElement) {
+        let path: string | null;
         try {
-            var path = await this.save(await fileOpen());
+            path = await this.save(await fileOpen());
         } catch {
-            var path = self.prompt('No file uploaded, please input an URL');
+            path = self.prompt('No file uploaded, please input an URL');
         }
         if (path) this.edit(editor, this.codeOf(path));
     }

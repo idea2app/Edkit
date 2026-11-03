@@ -14,10 +14,10 @@ jobs:
 
             - uses: pnpm/action-setup@v6
               with:
-                  version: 11
+                  version: 12
             - uses: actions/setup-node@v7
               with:
-                  node-version: 24
+                  node-version: 26
                   registry-url: https://registry.npmjs.org
                   cache: pnpm
             - name: Install Dependencies
@@ -29,6 +29,14 @@ jobs:
               run: |
                   pnpm publish --access public --provenance --no-git-checks
                   pnpm publish-wrappers
+
+            - name: Upload Web browser traces
+              uses: actions/upload-artifact@v7
+              if: failure()
+              with:
+                  name: Web-browser-traces
+                  path: test/results/
+                  if-no-files-found: ignore
 
             - name: Update document
               uses: peaceiris/actions-gh-pages@v4

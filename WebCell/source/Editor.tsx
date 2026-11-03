@@ -60,11 +60,9 @@ export class HTMLEditor
         ) as VideoTool;
     }
 
-    protected box: HTMLElement;
+    protected box!: HTMLElement;
 
     mountedCallback() {
-        this.bootTools();
-
         this.box = parseDOM(
             `
 <div
@@ -75,13 +73,15 @@ export class HTMLEditor
     aria-multiline="true"
 >
     ${this.defaultValue || ''}
-</div>`
+</div>`.trim()
         )[0] as HTMLElement;
 
         this.box.oninput = () => this.updateValue(this.box.innerHTML);
         this.box.onpaste = this.box.ondrop = this.handlePasteDrop;
 
         this.append(this.box);
+        this.internals.setFormValue(this.value ?? '');
+        this.bootTools();
 
         document.addEventListener('selectionchange', this.updateTools);
     }
@@ -110,7 +110,7 @@ export class HTMLEditor
             <>
                 <link
                     rel="stylesheet"
-                    href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+                    href="https://unpkg.com/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css"
                 />
                 <link
                     rel="stylesheet"

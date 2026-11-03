@@ -13,7 +13,7 @@ export abstract class ColorTool extends Tool {
 
         const { [colorName]: color } = getComputedStyle(box);
 
-        const [red, green, blue] = color.match(/\d+/g);
+        const [red, green, blue] = color.match(/\d+/g) || ['0', '0', '0'];
 
         return (
             '#' +

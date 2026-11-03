@@ -16,11 +16,12 @@ https://github.com/idea2app/Edkit#tools
 
 ## Versions
 
-|  SemVer  |  branch  |    status    | ES decorator |    MobX     | Edkit |
-| :------: | :------: | :----------: | :----------: | :---------: | :---: |
-|  `>=2`   | `master` | ✅developing |   stage-3    |  `>=6.11`   |  v1   |
-| `>=1 <2` | `master` | ❌deprecated |   stage-2    | `>=4 <6.11` |  v1   |
-|   `<1`   |  `v0.x`  | ❌deprecated |              |             |       |
+|  SemVer  |  branch  |    status    | ES decorator |    MobX     | Edkit | Bootstrap |
+| :------: | :------: | :----------: | :----------: | :---------: | :---: | :-------: |
+|  `>=3`   | `master` | ✅developing |   stage-3    |  `>=6.11`   |  v1   |    v6     |
+| `>=2 <3` | `master` | ❌deprecated |   stage-3    |  `>=6.11`   |  v1   |    v5     |
+| `>=1 <2` | `master` | ❌deprecated |   stage-2    | `>=4 <6.11` |  v1   |    v5     |
+|   `<1`   |  `v0.x`  | ❌deprecated |              |             |       |    v4     |
 
 ## Usage
 
@@ -38,7 +39,8 @@ npm install react react-bootstrap-editor
 {
     "compilerOptions": {
         "target": "ES6",
-        "moduleResolution": "Node",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
         "useDefineForClassFields": true,
         "experimentalDecorators": false,
         "jsx": "react-jsx"
