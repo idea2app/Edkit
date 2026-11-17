@@ -102,12 +102,12 @@ export class Editor
                 />
                 <link
                     rel="stylesheet"
-                    href="https://unpkg.com/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+                    href="https://unpkg.com/bootstrap-icons@1.13.2/font/bootstrap-icons.css"
                 />
                 <header>{toolList.map(tool => tool.render(this.box))}</header>
                 <div
                     ref={this.box}
-                    className="form-control h-auto"
+                    className="form-control d-block h-auto"
                     contentEditable
                     tabIndex={0}
                     role="textbox"

@@ -175,13 +175,13 @@ export function matrix(register: (getEditor: () => EditorPage) => void) {
         const icons =
             require.resolve('bootstrap-icons/font/bootstrap-icons.css');
 
-        styles.set('/bootstrap-icons@1.13.1/font/bootstrap-icons.css', {
+        styles.set('/bootstrap-icons@1.13.2/font/bootstrap-icons.css', {
             body: await readFile(icons),
             contentType: 'text/css'
         });
         for (const extension of ['woff', 'woff2'])
             styles.set(
-                `/bootstrap-icons@1.13.1/font/fonts/bootstrap-icons.${extension}`,
+                `/bootstrap-icons@1.13.2/font/fonts/bootstrap-icons.${extension}`,
                 {
                     body: await readFile(
                         join(

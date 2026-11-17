@@ -66,7 +66,7 @@ export class HTMLEditor
         this.box = parseDOM(
             `
 <div
-    class="form-control h-auto"
+    class="form-control d-block h-auto"
     contenteditable="true"
     tabindex="0"
     role="textbox"
@@ -114,7 +114,7 @@ export class HTMLEditor
                 />
                 <link
                     rel="stylesheet"
-                    href="https://unpkg.com/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+                    href="https://unpkg.com/bootstrap-icons@1.13.2/font/bootstrap-icons.css"
                 />
                 <header>
                     {this.toolList.map(tool => tool.render(this.box))}

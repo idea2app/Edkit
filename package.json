@@ -37,13 +37,13 @@
         "WebCell/test"
     ],
     "dependencies": {
-        "@swc/helpers": "^0.5.23",
+        "@swc/helpers": "^0.5.24",
         "@types/turndown": "^5.0.6",
         "browser-fs-access": "^0.38.0",
         "regenerator-runtime": "^0.14.1",
-        "turndown": "^7.2.4",
+        "turndown": "^7.2.5",
         "turndown-plugin-gfm": "^1.0.2",
-        "web-utility": "^4.8.1"
+        "web-utility": "^4.8.2"
     },
     "peerDependencies": {
         "marked": ">=4.0.10"
@@ -52,18 +52,18 @@
         "@parcel/packager-ts": "~2.16.4",
         "@parcel/transformer-typescript-types": "~2.16.4",
         "@swc-node/register": "^1.12.1",
-        "@swc/core": "^1.16.21",
+        "@swc/core": "^1.16.22",
         "@types/node": "^26.6.6",
         "bootstrap": "^6.0.0-alpha.1",
         "bootstrap-icons": "^1.13.2",
         "husky": "^9.1.7",
         "koapache": "^3.0.0",
-        "lint-staged": "^17.6.0",
-        "marked": "^18.1.2",
+        "lint-staged": "^17.6.1",
+        "marked": "^18.2.0",
         "open-cli": "^9.0.0",
         "parcel": "~2.16.4",
-        "playwright": "^1.64.1",
-        "prettier": "^3.9.10",
+        "playwright": "^1.65.1",
+        "prettier": "^3.10.1",
         "start-server-and-test": "^3.0.13",
         "typedoc": "^0.28.20",
         "typedoc-plugin-mdn-links": "^5.1.1",

@@ -48,12 +48,6 @@ npm install react react-bootstrap-editor
 }
 ```
 
-#### HTML entry
-
-```html
-<head> </head>
-```
-
 ### Initialization
 
 ```javascript
